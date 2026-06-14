@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velspace | Módulo 4 - Errores Comunes y Cómo Solucionarlos</title>
+  <meta name="description" content="Módulo 4 del curso Velspace: errores comunes al hacer velas artesanales y soluciones simples para mejorar resultados con calma y confianza.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f1ea;
+      --surface: #fffaf5;
+      --surface-2: #f3e6d8;
+      --text: #33261f;
+      --muted: #7d675a;
+      --line: rgba(51, 38, 31, 0.12);
+      --primary: #b97a56;
+      --primary-dark: #9e6443;
+      --gold: #d5b06f;
+      --terracotta: #c9826d;
+      --success: #6b8e62;
+      --white: #ffffff;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --shadow-sm: 0 8px 24px rgba(58, 36, 24, 0.08);
+      --shadow-md: 0 20px 45px rgba(58, 36, 24, 0.12);
+      --max: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(213, 176, 111, 0.18), transparent 20%),
+        radial-gradient(circle at bottom left, rgba(201, 130, 109, 0.16), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+      border-radius: var(--radius-md);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(248, 241, 234, 0.84);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #fff7ef, #ead4bc);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+      font-size: 18px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .brand-text strong {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-text span {
+      font-size: 0.74rem;
+      color: var(--muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .nav-link {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .hero {
+      padding: 56px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(185, 122, 86, 0.12);
+      color: var(--primary-dark);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 8vw, 4rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .hero p.lead {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 1.06rem;
+      max-width: 62ch;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 20px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.95rem;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--terracotta));
+      color: var(--white);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,250,245,0.95));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    section {
+      padding: 30px 0;
+    }
+
+    .section-card {
+      background: rgba(255, 250, 245, 0.84);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 22px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      margin: 10px 0 0;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      letter-spacing: -0.02em;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .mini-badge {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(213, 176, 111, 0.18);
+      color: #8b6732;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    ul.clean-list {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .tip-box {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(213,176,111,0.16), rgba(255,255,255,0.6));
+      border: 1px solid rgba(185, 122, 86, 0.14);
+      color: var(--text);
+    }
+
+    .tip-box strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .problem-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .problem {
+      padding: 18px;
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .problem h3 {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .problem p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .solution {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(107, 142, 98, 0.10);
+      border: 1px solid rgba(107, 142, 98, 0.20);
+      color: var(--text);
+      font-size: 0.94rem;
+    }
+
+    .solution strong {
+      color: var(--success);
+    }
+
+    .checklist {
+      margin-top: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--line);
+    }
+
+    .check {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(185, 122, 86, 0.12);
+      color: var(--primary-dark);
+      font-size: 0.86rem;
+      font-weight: 900;
+      margin-top: 1px;
+    }
+
+    .two-col {
+      display: grid;
+      gap: 18px;
+    }
+
+    .footer-box {
+      margin-top: 10px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (min-width: 760px) {
+      .hero-grid {
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: center;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .two-col {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">🛠️</div>
+        <div class="brand-text">
+          <span>Curso creado por Velspace</span>
+          <strong>Módulo 4 · Errores y Soluciones</strong>
+        </div>
+      </div>
+      <a class="nav-link" href="index.html">Volver al inicio</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Velspace · Aprender corrigiendo</div>
+          <h1>Errores comunes al hacer velas y cómo solucionarlos con calma</h1>
+          <p class="lead">
+            Bienvenida al <strong>Módulo 4 de Velspace</strong>. Si alguna vez una vela te quedó con marcas, se hundió en el centro,
+            no olía como esperabas o la mecha no se comportó bien, quiero que sepas algo: eso es completamente normal.
+            Aquí vamos a convertir esos tropiezos en aprendizaje real.
+          </p>
+          <div class="cta-row">
+            <a href="#errores-principales" class="btn btn-primary">Ver errores comunes</a>
+            <a href="#checklist-final" class="btn btn-secondary">Ir al checklist final</a>
+          </div>
+          <div class="tip-box">
+            <strong>Consejo Velspace</strong>
+            Cada error te está dando información. Cuando aprendes a leerlo, dejas de frustrarte y empiezas a mejorar de verdad.
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <img
+            src="https://images.unsplash.com/photo-1608181831718-2502503d02c3?auto=format&fit=crop&w=1200&q=80"
+            alt="Velas artesanales en proceso con superficie imperfecta y herramientas de trabajo"
+            width="1200"
+            height="900"
+            loading="lazy"
+          >
+          <p>
+            En este módulo de <strong>Velspace</strong> vamos a revisar los fallos más comunes en principiantes
+            y las formas más simples de corregirlos sin miedo.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="errores-principales">
+      <div class="container section-card">
+        <div class="section-header">
+          <div class="mini-badge">Problemas frecuentes</div>
+          <h2 class="section-title">Los errores más comunes y qué hacer en cada caso</h2>
+          <p>
+            Aquí tienes una guía práctica para reconocer qué pasó y cómo reaccionar sin entrar en pánico.
+          </p>
+        </div>
+
+        <div class="problem-list">
+          <article class="problem">
+            <h3>1. La vela quedó hundida en el centro</h3>
+            <p>
+              Esto pasa mucho cuando la cera enfría de forma desigual o cuando el recipiente pierde calor muy rápido.
+            </p>
+            <div class="solution">
+              <strong>Solución:</strong> guarda un poco de cera extra, vuelve a derretirla y rellena suavemente la parte hundida para nivelar la superficie.
+            </div>
+          </article>
+
+          <article class="problem">
+            <h3>2. La superficie se ve rugosa o con grietas</h3>
+            <p>
+              A veces ocurre por cambios de temperatura, corrientes de aire o porque el vertido se hizo demasiado caliente o demasiado frío.
+            </p>
+            <div class="solution">
+              <strong>Solución:</strong> prueba ajustar la temperatura de vertido y deja enfriar la vela en un lugar tranquilo, sin moverla ni cambiarla de ambiente.
+            </div>
+          </article>
+
+          <article class="problem">
+            <h3>3. La mecha quedó torcida o descentrada</h3>
+            <p>
+              Esto suele pasar cuando no se sujetó bien antes de verter la cera o cuando el frasco se movió al principio.
+            </p>
+            <div class="solution">
+              <strong>Solución:</strong> usa siempre un centrador o dos palitos para fijar la mecha, y evita mover el recipiente durante el enfriado.
+            </div>
+          </article>
+
+          <article class="problem">
+            <h3>4. La vela casi no huele</h3>
+            <p>
+              Puede deberse a una fragancia poco adecuada, a una dosificación baja o a que la vela no tuvo tiempo suficiente de curado.
+            </p>
+            <div class="solution">
+              <strong>Solución:</strong> revisa el porcentaje de fragancia, usa aromas específicos para velas y deja reposar la vela el tiempo suficiente antes de probarla.
+            </div>
+          </article>
+
+          <article class="problem">
+            <h3>5. La llama se ve pequeña o hace túnel</h3>
+            <p>
+              Esto suele pasar cuando la mecha es demasiado fina para el diámetro del recipiente.
+            </p>
+            <div class="solution">
+              <strong>Solución:</strong> prueba una mecha un poco más gruesa o específica para tu tipo de cera y tamaño de envase.
+            </div>
+          </article>
+
+          <article class="problem">
+            <h3>6. La vela se consume demasiado rápido</h3>
+            <p>
+              Puede ser señal de una mecha demasiado grande o de una fórmula que necesita ajuste.
+            </p>
+            <div class="solution">
+              <strong>Solución:</strong> prueba una mecha más delgada y observa el comportamiento en una nueva prueba antes de producir más unidades.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container section-card">
+        <div class="section-header">
+          <div class="mini-badge">Mentalidad correcta</div>
+          <h2 class="section-title">Cómo mirar tus errores sin frustrarte</h2>
+          <p>
+            Una parte importante de aprender velas es aceptar que casi nadie consigue resultados perfectos desde la primera tanda.
+          </p>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Anota lo que hiciste</h3>
+            <p>
+              Cada vez que hagas una prueba, apunta tipo de cera, fragancia, temperatura y resultado. Ese registro se convierte en tu mejor maestra.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Cambia una sola variable a la vez</h3>
+            <p>
+              Si cambias mecha, aroma, recipiente y temperatura al mismo tiempo, luego no sabrás qué fue lo que mejoró o empeoró.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>No juzgues una vela demasiado pronto</h3>
+            <p>
+              Una vela recién hecha todavía está en proceso. Dale tiempo para asentarse antes de sacar conclusiones definitivas.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Haz pruebas pequeñas</h3>
+            <p>
+              Es mejor aprender con una o dos unidades que arriesgar mucho material cuando todavía estás ajustando tu receta.
+            </p>
+          </article>
+        </div>
+
+        <div class="tip-box">
+          <strong>Tip Velspace</strong>
+          El error no es “hacer una vela imperfecta”. El verdadero error es no observarla, no anotar nada y volver a repetir lo mismo sin aprender.
+        </div>
+      </div>
+    </section>
+
+    <section id="checklist-final">
+      <div class="container section-card">
+        <div class="section-header">
+          <div class="mini-badge">Checklist final</div>
+          <h2 class="section-title">¿Ya sabes detectar y corregir lo más importante?</h2>
+          <p>
+            Si entiendes estos puntos, ya diste un paso enorme hacia velas más lindas, más estables y más vendibles.
+          </p>
+        </div>
+
+        <div class="checklist">
+          <div class="checklist-item">
+            <div class="check">✓</div>
+            <div>
+              <strong>Reconoces un hundimiento central</strong><br>
+              Ya sabes que no significa “fracaso”, sino una corrección simple posible.
+            </div>
+          </div>
+
+          <div class="checklist-item">
+            <div class="check">✓</div>
+            <div>
+              <strong>Observas la superficie de la vela</strong><br>
+              Entiendes que textura y acabado también te están dando información.
+            </div>
+          </div>
+
+          <div class="checklist-item">
+            <div class="check">✓</div>
+            <div>
+              <strong>Prestas atención a la mecha</strong><br>
+              Sabes que una mecha bien elegida cambia muchísimo el resultado.
+            </div>
+          </div>
+
+          <div class="checklist-item">
+            <div class="check">✓</div>
+            <div>
+              <strong>Aprendiste a no frustrarte tan rápido</strong><br>
+              Ahora miras los errores como parte del proceso de mejora.
+            </div>
+          </div>
+
+          <div class="checklist-item">
+            <div class="check">✓</div>
+            <div>
+              <strong>Estás lista para avanzar con más criterio</strong><br>
+              Ya tienes una mirada más técnica y más segura sobre tus velas.
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <strong>Cierre del Módulo 4</strong>
+          Ahora no solo haces velas: también sabes leer sus señales. En el siguiente módulo de <strong>Velspace</strong> podemos pasar a cómo transformar este conocimiento en una oferta más rentable y profesional.
+        </div>
+
+        <div class="footer-box">
+          Módulo 4 creado por <strong>Velspace</strong> · listo para guardar como <strong>modulo-4.html</strong>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
