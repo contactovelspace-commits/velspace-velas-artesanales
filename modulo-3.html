@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velspace | Modulo 3 - Proceso de Fabricacion Paso a Paso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f8f1ea;--surface:#fffaf5;--surface-2:#f3e6d8;--text:#33261f;--muted:#7d675a;--line:rgba(51,38,31,0.12);--primary:#b97a56;--primary-dark:#9e6443;--gold:#d5b06f;--terracotta:#c9826d;--white:#ffffff;--radius-sm:12px;--radius-md:20px;--radius-lg:28px;--shadow-sm:0 8px 24px rgba(58,36,24,0.08);--shadow-md:0 20px 45px rgba(58,36,24,0.12);--max:1100px;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:"Inter",sans-serif;background:radial-gradient(circle at top right,rgba(213,176,111,0.18),transparent 20%),radial-gradient(circle at bottom left,rgba(201,130,109,0.16),transparent 25%),var(--bg);color:var(--text);line-height:1.7;}
+.container{max-width:var(--max);margin:0 auto;padding:0 20px;}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);background:rgba(255,255,255,0.8);backdrop-filter:blur(8px);position:sticky;top:0;z-index:100;}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);}
+.brand-img{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--terracotta),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:18px;}
+.brand-name{font-family:"Playfair Display",serif;font-size:20px;font-weight:700;}
+.nav-links{display:flex;gap:16px;align-items:center;}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--primary);}
+.nav-active{background:var(--primary);color:white !important;padding:8px 18px;border-radius:25px;}
+.hero{text-align:center;padding:60px 20px 40px;}
+.hero h1{font-family:"Playfair Display",serif;font-size:clamp(28px,5vw,44px);color:var(--text);margin:0 0 16px;}
+.hero p{font-size:clamp(16px,2.5vw,18px);color:var(--muted);max-width:620px;margin:0 auto 28px;}
+.badge{display:inline-block;background:var(--surface-2);padding:6px 18px;border-radius:20px;font-size:13px;font-weight:600;color:var(--terracotta);margin-bottom:20px;}
+.steps-section{padding:40px 0;}
+.step-card{background:var(--white);border-radius:var(--radius-lg);padding:32px 28px;margin-bottom:24px;box-shadow:var(--shadow-sm);display:flex;gap:24px;align-items:flex-start;}
+.step-number{min-width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--terracotta));display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",serif;font-size:20px;font-weight:700;color:white;}
+.step-content h3{font-family:"Playfair Display",serif;font-size:22px;margin:0 0 12px;color:var(--text);}
+.step-content p{color:var(--muted);font-size:15px;margin:0 0 12px;line-height:1.8;}
+.tip-box{background:var(--surface);border-left:4px solid var(--gold);border-radius:8px;padding:14px 18px;margin-top:14px;font-size:14px;color:var(--muted);}
+.tip-box strong{color:var(--terracotta);}
+.temps-table{background:var(--white);border-radius:var(--radius-lg);padding:32px;margin:40px 0;box-shadow:var(--shadow-sm);}
+.temps-table h2{font-family:"Playfair Display",serif;font-size:26px;margin:0 0 20px;color:var(--text);}
+.table-wrapper{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:14px;}
+th{background:var(--surface-2);color:var(--text);font-weight:600;padding:12px 16px;text-align:left;}
+td{padding:12px 16px;border-bottom:1px solid var(--line);color:var(--muted);}
+tr:last-child td{border-bottom:none;}
+.alert-card{background:linear-gradient(135deg,rgba(201,130,109,0.15),rgba(213,176,111,0.15));border:1px solid var(--terracotta);border-radius:var(--radius-md);padding:24px;margin:32px 0;}
+.alert-card h3{font-family:"Playfair Display",serif;font-size:20px;color:var(--terracotta);margin:0 0 10px;}
+.alert-card ul{color:var(--muted);font-size:14px;padding-left:20px;margin:0;}
+.alert-card ul li{margin-bottom:8px;}
+.checklist-section{background:var(--white);border-radius:var(--radius-lg);padding:32px;margin:40px 0;box-shadow:var(--shadow-sm);}
+.checklist-section h2{font-family:"Playfair Display",serif;font-size:26px;margin:0 0 20px;color:var(--text);}
+.check-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);}
+.check-item:last-child{border-bottom:none;}
+.check-icon{width:28px;height:28px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:white;font-size:14px;flex-shrink:0;margin-top:2px;}
+.check-text h4{margin:0 0 4px;font-size:15px;color:var(--text);font-weight:600;}
+.check-text p{margin:0;font-size:13px;color:var(--muted);}
+.nav-footer{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;padding:40px 0;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--primary);color:white;border-radius:30px;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.3s;}
+.btn-primary:hover{background:var(--primary-dark);}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:transparent;border:2px solid var(--primary);color:var(--primary);border-radius:30px;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.3s;}
+.btn-outline:hover{background:var(--primary);color:white;}
+@media(max-width:640px){.navbar{flex-direction:column;gap:12px;}.nav-links{flex-wrap:wrap;justify-content:center;}.step-card{flex-direction:column;gap:14px;}.step-number{margin:0 auto;}}
+</style>
+</head>
+<body>
+  <nav class="navbar"><div class="container"><div class="brand"><div class="brand-img">🕯️</div><div class="brand-name">Velspace</div></div><div class="nav-links"><a href="index.html">Inicio</a><a href="modulo-2.html">← Módulo 2</a><a href="modulo-4.html" class="nav-active">Módulo 4 →</a></div></div></nav>
+<section class="hero"><div class="container"><h1>Módulo 3: Proceso de Fabricación Paso a Paso</h1><p>Domina cada etapa del proceso de creación de velas artesanales, desde la preparación hasta el curado final.</p><div class="progress-bar"><div class="progress-fill" style="width:30%"></div></div><p style="font-size:13px;color:var(--muted);margin-top:8px">Progreso del curso: 30% completado</p></div></section>
+<section class="content-section"><div class="container"><div class="intro-card"><h2>¿Por qué importa el proceso?</h2><p>Una vela puede tener los mejores ingredientes del mundo, pero si el proceso de fabricación no es correcto, el resultado será decepcionante. En este módulo aprenderás el protocolo exacto que usan los artesanos profesionales para garantizar velas perfectas en cada lote.</p></div>
+<div class="steps-container"><h2 style="font-family:'Playfair Display',serif;color:var(--text);font-size:26px;margin-bottom:24px;text-align:center">El Proceso Profesional de 8 Pasos</h2>
+<div class="step-card"><div class="step-number">01</div><div class="step-content"><h3>Preparación del Espacio de Trabajo</h3><p>Antes de comenzar, organiza tu espacio de trabajo con todos los materiales a mano. La temperatura ambiente ideal es entre 20-25°C. Protege las superficies con papel periódico o una lona. Ten a mano: termómetro de cocina, báscula digital, espátulas de silicona, toallas de papel y un extintor de incendios cercano.</p><div class="tip-box"><strong>✅ Checklist:</strong> Superficie protegida · Ventilación adecuada · Materiales medidos · Zona de secado lista</div></div></div>
+<div class="step-card"><div class="step-number">02</div><div class="step-content"><h3>Medición y Pesaje de Materiales</h3><p>La precisión es fundamental. Usa siempre una báscula digital con precisión de al menos 1 gramo. Mide la cera por peso, no por volumen, ya que la densidad varía. Para una vela de 200g de producto final necesitas aproximadamente 170g de cera de soya más el volumen que ocupará la fragancia (generalmente 6-10% del peso de cera).</p><div class="formula-box"><strong>Fórmula básica:</strong><br>Cera: 170g · Fragancia: 10-17g (6-10%) · Colorante: 1-3g · Total vela: ~200g</div></div></div>
+<div class="step-card"><div class="step-number">03</div><div class="step-content"><h3>Derretido de la Cera</h3><p>Usa un método de baño maría: coloca una olla con agua a fuego medio y sobre ella un recipiente metálico o de vidrio resistente al calor con la cera. Nunca derritas cera directamente en una llama abierta. Calienta lentamente hasta alcanzar 75-85°C para cera de soya. Usa el termómetro constantemente y no superes los 90°C o la cera puede decolorarse.</p><div class="warning-box">⚠️ <strong>Seguridad:</strong> Nunca dejes la cera caliente sin supervisión. La cera en punto de ignición (alrededor de 240°C) puede causar incendios graves.</div></div></div>
+<div class="step-card"><div class="step-number">04</div><div class="step-content"><h3>Preparación de los Moldes y Mechas</h3><p>Mientras la cera se derrite, prepara tus contenedores. Lava y seca perfectamente cada recipiente. Centra la mecha usando un soporte de mecha o coloca un palillo de madera cruzado sobre la boca del recipiente. La mecha debe quedar tensa y centrada. Si usas adhesivo para mecha, aplícalo en la base del recipiente antes de insertar.</p><div class="tip-box">💡 <strong>Tip pro:</strong> Precalienta los recipientes de vidrio a 40-50°C en el horno para reducir el choque térmico y evitar burbujas en las paredes.</div></div></div>
+<div class="step-card"><div class="step-number">05</div><div class="step-content"><h3>Adición de Colorantes y Fragancias</h3><p>Cuando la cera alcance 75-80°C, retira del fuego. Agrega primero el colorante (si usas) y mezcla completamente durante 2 minutos. Luego, cuando la temperatura baje a 65-70°C, agrega la fragancia. Este rango de temperatura es crítico: muy caliente quema los aromas, muy fría crea grumos. Mezcla durante 2-3 minutos con movimientos suaves y constantes.</p><div class="formula-box"><strong>Temperatura de adición:</strong><br>Colorantes: 75-80°C · Fragancias: 65-70°C · Vertido: 55-65°C</div></div></div>
+<div class="step-card"><div class="step-number">06</div><div class="step-content"><h3>Vertido en los Moldes</h3><p>Cuando la cera llegue a 55-65°C (para cera de soya), es el momento de verter. Hazlo lentamente y en el centro del recipiente para no desplazar la mecha. Deja 1cm libre desde el borde superior. Si tienes múltiples recipientes del mismo tipo, trabaja en serie para mantener la consistencia de temperatura. Una jarra con pico vertedor facilita mucho este proceso.</p><div class="tip-box">💡 <strong>Tip:</strong> Toca el exterior del recipiente: debe sentirse caliente pero no quemante. Esto indica temperatura correcta de vertido.</div></div></div>
+<div class="step-card"><div class="step-number">07</div><div class="step-content"><h3>Enfriamiento y Segunda Capa</h3><p>Deja enfriar a temperatura ambiente durante 4-6 horas. NO muevas las velas ni las coloques en refrigerador, ya que el enfriamiento rápido causa grietas y hundimientos. La cera de soya generalmente forma un pequeño hundimiento en el centro al solidificar. Esto es normal. Una vez solidificada completamente, calienta un poco más de cera y realiza una segunda capa de relleno para nivelar la superficie.</p><div class="warning-box">⚠️ No uses ventiladores ni aire acondicionado para acelerar el enfriamiento. Causará marcas de temperatura en la superficie.</div></div></div>
+<div class="step-card"><div class="step-number">08</div><div class="step-content"><h3>Curado y Terminado Final</h3><p>El curado es el secreto de las velas profesionales. Deja las velas reposar en un lugar fresco, oscuro y sin corrientes de aire durante mínimo 48 horas para cera de soya (idealmente 1-2 semanas). Durante el curado, los aceites de fragancia se unen mejor a la cera, mejorando el throw (proyección del aroma). Finalmente, recorta la mecha a 6mm sobre la superficie y realiza el control de calidad.</p><div class="formula-box"><strong>Tiempos de curado por tipo de cera:</strong><br>Soya: 48h mínimo · Parafina: 24h · Cera de abejas: 12h · Blend premium: 1-2 semanas</div></div></div></div>
+<div class="troubleshooting"><h2>Resolución de Problemas Comunes</h2><table><thead><tr><th>Problema</th><th>Causa</th><th>Solución</th></tr></thead><tbody><tr><td>Superficie con hoyos</td><td>Burbujas de aire al verter</td><td>Verter más lentamente, precalentar recipiente</td></tr><tr><td>Hundimiento central</td><td>Normal en soya</td><td>Segunda capa de relleno a mismo ángulo</td></tr><tr><td>Superficie rugosa/granulada</td><td>Temperatura de vertido incorrecta</td><td>Verter entre 55-65°C</td></tr><tr><td>Manchas blancas (frosting)</td><td>Propiedad natural de soya</td><td>Usar cera en escamas más finas, verter más frío</td></tr><tr><td>Mecha descentrada</td><td>No se fijó correctamente</td><td>Usar adhesivo + soporte metálico</td></tr><tr><td>Olor débil al quemar</td><td>Fragancia insuficiente o curado corto</td><td>Aumentar % fragancia, curar más tiempo</td></tr><tr><td>Vela con humo negro</td><td>Mecha demasiado larga</td><td>Recortar mecha a 6mm antes de cada uso</td></tr></tbody></table></div>
+<div class="alert-card"><h3>📋 Tu Tarea de Práctica</h3><ul><li>Haz tu primer lote pequeño: 3 velas de 200g cada una</li><li>Registra en un cuaderno: temperaturas, tiempos y resultados</li><li>Toma fotos del proceso para tu portafolio</li><li>Evalúa las velas después de 48h de curado</li><li>Anota qué mejorarías para el próximo lote</li></ul></div>
+<div class="checklist-section"><h2>Lo que dominaste en este módulo</h2><div class="check-item"><div class="check-icon">✓</div><div class="check-text"><h4>Proceso completo de 8 pasos</h4><p>Desde la preparación del espacio hasta el curado final</p></div></div><div class="check-item"><div class="check-icon">✓</div><div class="check-text"><h4>Temperaturas críticas</h4><p>Sabes exactamente cuándo agregar cada ingrediente</p></div></div><div class="check-item"><div class="check-icon">✓</div><div class="check-text"><h4>Resolución de problemas</h4><p>Identificas y corriges los 7 defectos más comunes</p></div></div><div class="check-item"><div class="check-icon">✓</div><div class="check-text"><h4>Protocolo de curado</h4><p>Entiendes por qué el tiempo de reposo transforma la calidad</p></div></div></div>
+<div class="nav-footer"><a href="modulo-2.html" class="btn-outline">← Módulo 2: Formulación</a><a href="modulo-4.html" class="btn-primary">Módulo 4: Color y Aroma →</a></div></div></section>
+<footer style="background:var(--surface-2);padding:32px 20px;text-align:center"><div class="container"><p style="color:var(--muted);font-size:14px">© 2026 Velspace · Todos los derechos reservados</p><p style="margin-top:8px"><a href="https://wa.me/56933411093" style="color:var(--primary);text-decoration:none">💬 ¿Dudas? Escríbenos al WhatsApp</a></p></div></footer>
+</body>
+</html>
