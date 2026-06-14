@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velspace | Módulo 1 - Materiales e Insumos Necesarios</title>
+  <meta name="description" content="Módulo 1 del curso Velspace: materiales e insumos necesarios para comenzar a fabricar velas artesanales desde casa.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f1ea;
+      --surface: #fffaf5;
+      --surface-2: #f3e6d8;
+      --text: #33261f;
+      --muted: #7d675a;
+      --line: rgba(51, 38, 31, 0.12);
+      --primary: #b97a56;
+      --primary-dark: #9e6443;
+      --gold: #d5b06f;
+      --terracotta: #c9826d;
+      --white: #ffffff;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --shadow-sm: 0 8px 24px rgba(58, 36, 24, 0.08);
+      --shadow-md: 0 20px 45px rgba(58, 36, 24, 0.12);
+      --max: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(213, 176, 111, 0.18), transparent 20%),
+        radial-gradient(circle at bottom left, rgba(201, 130, 109, 0.16), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+      border-radius: var(--radius-md);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(248, 241, 234, 0.84);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #fff7ef, #ead4bc);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+      font-size: 18px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .brand-text strong {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-text span {
+      font-size: 0.74rem;
+      color: var(--muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .nav-link {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .hero {
+      padding: 56px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(185, 122, 86, 0.12);
+      color: var(--primary-dark);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 8vw, 4.1rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .hero p.lead {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 1.06rem;
+      max-width: 62ch;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 20px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--terracotta));
+      color: var(--white);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,250,245,0.95));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    section {
+      padding: 30px 0;
+    }
+
+    .section-card {
+      background: rgba(255, 250, 245, 0.84);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 22px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      margin: 10px 0 0;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      letter-spacing: -0.02em;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .mini-badge {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(213, 176, 111, 0.18);
+      color: #8b6732;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    ul.clean-list {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .tip-box {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(213,176,111,0.16), rgba(255,255,255,0.6));
+      border: 1px solid rgba(185, 122, 86, 0.14);
+      color: var(--text);
+    }
+
+    .tip-box strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .materials-highlight {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .materials-highlight .card strong {
+      color: var(--text);
+    }
+
+    .checklist {
+      margin-top: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--line);
+    }
+
+    .check {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(185, 122, 86, 0.12);
+      color: var(--primary-dark);
+      font-size: 0.86rem;
+      font-weight: 900;
+      margin-top: 1px;
+    }
+
+    .two-col {
+      display: grid;
+      gap: 18px;
+    }
+
+    .footer-box {
+      margin-top: 10px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (min-width: 760px) {
+      .hero-grid {
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: center;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .two-col {
+        grid-template-columns: 1.05fr 0.95fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">🕯️</div>
+        <div class="brand-text">
+          <span>Curso creado por Velspace</span>
+          <strong>Módulo 1 · Materiales e Insumos</strong>
+        </div>
+      </div>
+      <a class="nav-link" href="index.html">Volver al inicio</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Velspace · Curso online premium</div>
+          <h1>Materiales e Insumos Necesarios para empezar con velas artesanales</h1>
+          <p class="lead">
+            Bienvenida al <strong>Módulo 1 de Velspace</strong>. Aquí vas a descubrir, de forma simple y cercana,
+            cuáles son los materiales que realmente necesitas para hacer tus primeras velas desde casa sin gastar de más
+            ni perderte entre nombres técnicos.
+          </p>
+          <div class="cta-row">
+            <a href="#materiales-principales" class="btn btn-primary">Ver materiales principales</a>
+            <a href="#checklist-final" class="btn btn-secondary">Ir al checklist</a>
+          </div>
+          <div class="tip-box">
+            <strong>Consejo Velspace</strong>
+            Empieza con pocos materiales, pero bien elegidos. No necesitas comprar todo el catálogo del mundo para hacer una vela bonita, segura y vendible.
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <img
+            src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=1200&q=80"
+            alt="Velas artesanales elegantes sobre una mesa clara con estética cálida y premium"
+            width="1200"
+            height="900"
+            loading="lazy"
+          >
+          <p>
+            En este módulo de <strong>Velspace</strong> te explico qué comprar primero, cómo elegir mejor tus insumos
+            y cómo armar una base linda, práctica y funcional para comenzar tu camino con velas.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="materiales-principales">
+      <div class="container section-card">
+        <div class="section-header">
+          <div class="mini-badge">Lo esencial</div>
+          <h2 class="section-title">Los materiales principales que sí necesitas</h2>
+          <p>
+            Vamos paso a paso, como si estuviéramos preparando una mesa de trabajo juntas. Estos son los insumos base
+            para empezar con tranquilidad.
+          </p>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>1. Cera</h3>
+            <p>
+              La cera es el corazón de tu vela. Para empezar, la más amigable suele ser la <strong>cera de soja</strong>,
+              porque tiene un acabado suave, combina muy bien con fragancias y se usa mucho en velas en recipiente.
+            </p>
+            <ul class="clean-list">
+              <li>Cera de soja: ideal para principiantes y para velas aromáticas en vaso.</li>
+              <li>Cera de coco: muy cremosa y elegante, muy usada en líneas premium.</li>
+              <li>Cera de abeja: natural, firme y con aroma propio suave a miel.</li>
+              <li>Parafina: económica y muy versátil, útil para velas decorativas.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>2. Mechas</h3>
+            <p>
+              La mecha define cómo va a quemar tu vela. Si eliges una demasiado pequeña, se hará un túnel; si es muy grande,
+              quemará demasiado rápido.
+            </p>
+            <ul class="clean-list">
+              <li>Empieza con <strong>mechas de algodón preenceradas</strong>.</li>
+              <li>Elige según el diámetro del recipiente.</li>
+              <li>Si vas a usar cera de soja, busca mechas recomendadas para cera vegetal.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>3. Fragancias</h3>
+            <p>
+              No todas las esencias sirven para velas. Lo mejor es usar <strong>fragancias específicas para velería</strong>,
+              porque están pensadas para mezclarse mejor con la cera y rendir bien cuando la vela se enciende.
+            </p>
+            <ul class="clean-list">
+              <li>Vainilla, lavanda, canela, algodón limpio y coco suelen gustar mucho.</li>
+              <li>Empieza con 2 o 3 aromas para no complicarte.</li>
+              <li>Respeta siempre el porcentaje recomendado por el proveedor.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>4. Recipientes o moldes</h3>
+            <p>
+              Si estás comenzando, los recipientes de vidrio resistentes al calor son una excelente opción porque se ven elegantes,
+              son fáciles de trabajar y ayudan a que la vela tenga una presentación profesional.
+            </p>
+            <ul class="clean-list">
+              <li>Frascos de vidrio grueso.</li>
+              <li>Latas metálicas decorativas.</li>
+              <li>Tarros de cerámica aptos para calor.</li>
+              <li>Moldes de silicona si quieres velas con formas.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container section-card">
+        <div class="section-header">
+          <div class="mini-badge">Herramientas base</div>
+          <h2 class="section-title">Herramientas que te facilitan la vida</h2>
+          <p>
+            Estas herramientas no son un lujo: te ahorran errores, te ayudan a trabajar con más seguridad y hacen que tu resultado final se vea más profesional.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>Báscula digital</h3>
+            <p>
+              Todo se trabaja mucho mejor cuando pesas en gramos. Te ayuda a calcular cera, fragancia y costos reales.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Termómetro</h3>
+            <p>
+              Es clave para saber cuándo mezclar, cuándo perfumar y cuándo verter. La temperatura cambia el acabado de la vela.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Jarra fundidora</h3>
+            <p>
+              Ideal para baño maría. Te permite fundir la cera con más control y verterla con comodidad en tus envases.
+            </p>
+          </article>
+        </div>
+
+        <div class="materials-highlight two-col">
+          <article class="card">
+            <h3>Otros elementos útiles</h3>
+            <ul class="clean-list">
+              <li>Palitos o centradores para sostener la mecha recta.</li>
+              <li>Tijeras o corta mechas.</li>
+              <li>Etiquetas para identificar aroma, fecha y colección.</li>
+              <li>Guantes o paños para trabajar más cómoda con recipientes calientes.</li>
+              <li>Papel absorbente o trapo para limpiar derrames pequeños.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Qué no necesitas al principio</h3>
+            <p>
+              En Velspace preferimos que empieces simple y bonito. No hace falta comprar 20 fragancias, 12 colorantes,
+              8 moldes y 4 tipos de cera el primer día.
+            </p>
+            <ul class="clean-list">
+              <li>No necesitas grandes máquinas.</li>
+              <li>No necesitas un taller profesional completo para arrancar.</li>
+              <li>No necesitas comprar por mayoreo desde la primera semana.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="checklist-final">
+      <div class="container section-card">
+        <div class="section-header">
+          <div class="mini-badge">Checklist Velspace</div>
+          <h2 class="section-title">Tu lista clara para comenzar sin errores</h2>
+          <p>
+            Si tienes esto, ya puedes dar tus primeros pasos con seguridad y orden.
+          </p>
+        </div>
+
+        <div class="checklist">
+          <div class="checklist-item">
+            <div class="check">✓</div>
+            <div>
+              <strong>Cera base</strong><br>
+              Puede ser soja, coco, abeja o parafina, según el tipo de vela que quieras hacer.
+            </div>
+          </div>
+
+          <div class="checklist-item">
+            <div class="check">✓</div>
+            <div>
+              <strong>Mechas adecuadas</strong><br>
+              Elige mechas según el tamaño del recipiente y el tipo de cera.
+            </div>
+          </div>
+
+          <div class="checklist-item">
+            <div class="check">✓</div>
+            <div>
+              <strong>Fragancia para velas</strong><br>
+              Empieza con pocas, pero con aromas comerciales que gusten mucho.
+            </div>
+          </div>
+
+          <div class="checklist-item">
+            <div class="check">✓</div>
+            <div>
+              <strong>Recipientes o moldes</strong><br>
+              Frascos resistentes al calor o moldes de silicona si quieres piezas decorativas.
+            </div>
+          </div>
+
+          <div class="checklist-item">
+            <div class="check">✓</div>
+            <div>
+              <strong>Báscula, termómetro y jarra</strong><br>
+              Son la base para trabajar con precisión y evitar errores comunes.
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <strong>Cierre del Módulo 1</strong>
+          Ya no estás adivinando qué comprar. Ahora tienes una base clara, práctica y elegante para empezar con confianza.
+          En el siguiente módulo de <strong>Velspace</strong>, el foco puede pasar a seguridad, preparación del espacio o al primer paso a paso de fabricación.
+        </div>
+
+        <div class="footer-box">
+          Módulo 1 creado por <strong>Velspace</strong> · listo para guardar como <strong>modulo-1.html</strong>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
