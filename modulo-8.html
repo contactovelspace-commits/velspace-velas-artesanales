@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velspace | Módulo 8: Proveedores, Compras Inteligentes y Abastecimiento</title>
+  <meta
+    name="description"
+    content="Módulo 8 de Velspace: Proveedores, compras inteligentes y abastecimiento para velas artesanales. Aprende a comprar mejor, comparar insumos y organizar tu negocio."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --bg: #f6eee7;
+      --bg-soft: #fbf7f2;
+      --surface: #fffdfa;
+      --surface-2: #f1e3d6;
+      --text: #32231d;
+      --text-soft: #705d50;
+      --text-muted: #9a7f6f;
+      --primary: #c88861;
+      --primary-strong: #a96c46;
+      --primary-soft: rgba(200, 136, 97, 0.12);
+      --gold: #d6b06e;
+      --rose: #ca7f6d;
+      --success: #5d8a67;
+      --border: rgba(79, 58, 45, 0.14);
+      --shadow-sm: 0 10px 24px rgba(58, 37, 25, 0.08);
+      --shadow-md: 0 24px 64px rgba(58, 37, 25, 0.14);
+      --radius-sm: 0.8rem;
+      --radius-md: 1.25rem;
+      --radius-lg: 1.8rem;
+      --radius-pill: 999px;
+      --font-display: "Playfair Display", serif;
+      --font-body: "Inter", sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg: #171210;
+      --bg-soft: #1d1714;
+      --surface: #241c18;
+      --surface-2: #2f231d;
+      --text: #f7ede4;
+      --text-soft: #dac3b3;
+      --text-muted: #b89a86;
+      --primary: #ebb180;
+      --primary-strong: #f0c08f;
+      --primary-soft: rgba(235, 177, 128, 0.15);
+      --gold: #efc98f;
+      --rose: #ea9a85;
+      --success: #89b391;
+      --border: rgba(255, 241, 226, 0.14);
+      --shadow-sm: 0 10px 24px rgba(0, 0, 0, 0.32);
+      --shadow-md: 0 24px 64px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background:
+        radial-gradient(circle at top right, rgba(214, 176, 110, 0.18), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(202, 127, 109, 0.12), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -50px;
+      left: 1rem;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-pill);
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    .progress-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      z-index: 90;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--rose), var(--gold));
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      backdrop-filter: blur(14px);
+      background: color-mix(in srgb, var(--bg) 84%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 42%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary-soft), rgba(255,255,255,0.45));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      color: var(--primary-strong);
+      flex-shrink: 0;
+    }
+
+    .brand-copy small {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.12rem;
+    }
+
+    .brand-copy strong {
+      font-family: var(--font-display);
+      font-size: 1.04rem;
+      letter-spacing: 0.02em;
+    }
+
+    .nav {
+      display: none;
+      gap: 1rem;
+      font-size: 0.93rem;
+      color: var(--text-soft);
+    }
+
+    .nav a:hover {
+      color: var(--primary-strong);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-soft);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mobile-nav {
+      display: none;
+      padding-bottom: 1rem;
+    }
+
+    .mobile-nav.open {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .mobile-nav a {
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-pill);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+      font-size: 0.92rem;
+    }
+
+    .hero {
+      padding: 3rem 0 2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 0.35rem 0.8rem;
+      border-radius: var(--radius-pill);
+      background: var(--primary-soft);
+      color: var(--primary-strong);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.35rem, 6vw, 4.1rem);
+      line-height: 1.03;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      color: var(--text-soft);
+      font-size: 1.03rem;
+      max-width: 40rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-complete,
+    .copy-btn,
+    .calc-btn {
+      min-height: 48px;
+      border-radius: var(--radius-pill);
+      padding: 0.9rem 1.2rem;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--rose), var(--gold));
+      color: #fff;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary,
+    .btn-complete,
+    .copy-btn,
+    .calc-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+    }
+
+    .hero-card,
+    .card,
+    .provider-card,
+    .check-card,
+    .faq-item,
+    .tool-card,
+    .calc-box,
+    .note-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-card {
+      overflow: hidden;
+    }
+
+    .hero-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .hero-card-body {
+      padding: 1rem;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    section {
+      padding: 2.5rem 0;
+    }
+
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 1.3rem;
+    }
+
+    .section-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.05;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-head p {
+      color: var(--text-soft);
+      max-width: 39rem;
+      font-size: 0.95rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card,
+    .provider-card,
+    .check-card,
+    .faq-item,
+    .tool-card,
+    .calc-box,
+    .note-box {
+      padding: 1.15rem;
+    }
+
+    .card h3,
+    .provider-card h3,
+    .check-card h3,
+    .tool-card h3,
+    .calc-box h3 {
+      margin-bottom: 0.45rem;
+      font-size: 1.06rem;
+    }
+
+    .card p,
+    .card li,
+    .provider-card p,
+    .provider-card li,
+    .check-card p,
+    .check-card li,
+    .tool-card p,
+    .tool-card li,
+    .faq-item p,
+    .note-box p {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    .card ul,
+    .provider-card ul,
+    .check-card ul,
+    .tool-card ul {
+      padding-left: 1rem;
+      margin-top: 0.7rem;
+    }
+
+    .card li + li,
+    .provider-card li + li,
+    .check-card li + li,
+    .tool-card li + li {
+      margin-top: 0.35rem;
+    }
+
+    .provider-grid,
+    .tool-grid,
+    .faq-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.28rem 0.72rem;
+      border-radius: var(--radius-pill);
+      background: var(--primary-soft);
+      color: var(--primary-strong);
+      font-size: 0.74rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.75rem;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: start;
+      gap: 0.6rem;
+      color: var(--text-soft);
+      font-size: 0.94rem;
+    }
+
+    .check-item input {
+      margin-top: 0.18rem;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .copy-status,
+    .save-status {
+      margin-top: 0.45rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .calc-box {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .calc-grid {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .calc-row {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .calc-row label {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .calc-row input,
+    .calc-row select {
+      min-height: 48px;
+      padding: 0.8rem 0.9rem;
+      border-radius: 0.95rem;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      color: var(--text);
+    }
+
+    .calc-result {
+      padding: 1rem;
+      border-radius: 1rem;
+      background: color-mix(in srgb, var(--primary-soft) 65%, var(--surface));
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+    }
+
+    .note-box {
+      background: linear-gradient(180deg, var(--surface), var(--bg-soft));
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0 3rem;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (min-width: 760px) {
+      .hero-grid,
+      .two-col,
+      .provider-grid,
+      .tool-grid,
+      .faq-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .calc-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 980px) {
+      .nav {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: none;
+      }
+
+      .provider-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .fade-up {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <div class="progress-wrap" aria-hidden="true">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio del módulo 8">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2c2.5 2.8 4.5 5.4 4.5 8.5A4.5 4.5 0 1 1 7.5 10.5C7.5 7.4 9.5 4.8 12 2Z"></path>
+            <path d="M7 21h10"></path>
+            <path d="M9.5 17.5h5"></path>
+          </svg>
+        </div>
+        <div class="brand-copy">
+          <small>Velspace · Módulo 8</small>
+          <strong>Proveedores, Compras Inteligentes y Abastecimiento</strong>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#proveedores">Proveedores</a>
+        <a href="#compras">Compras inteligentes</a>
+        <a href="#calculadora">Calculadora</a>
+        <a href="#organizacion">Organización</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambiar modo oscuro">◐</button>
+        <button class="icon-btn menu-btn" id="menuToggle" type="button" aria-label="Abrir menú">☰</button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav container" id="mobileNav" aria-label="Navegación móvil">
+      <a href="#inicio">Inicio</a>
+      <a href="#proveedores">Proveedores</a>
+      <a href="#compras">Compras inteligentes</a>
+      <a href="#calculadora">Calculadora</a>
+      <a href="#organizacion">Organización</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="fade-up">
+          <span class="eyebrow">Velspace · abastecimiento con estrategia</span>
+          <h1>Módulo 8: cómo comprar mejor, gastar menos y elegir proveedores sin sentirte perdida</h1>
+          <p>
+            En este módulo de Velspace vamos a trabajar una parte clave del negocio: <strong>dónde comprar</strong>,
+            <strong>cómo comparar</strong>, <strong>cómo evitar compras impulsivas</strong> y cómo organizar tus insumos para que tu marca crezca con orden.
+            La idea no es comprar por ansiedad, sino comprar con criterio.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn-primary" href="#proveedores">Ver proveedores recomendados</a>
+            <button class="btn-secondary" id="markModuleBtn" type="button">Marcar módulo como completado</button>
+          </div>
+        </div>
+
+        <aside class="hero-card fade-up">
+          <img
+            src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/06b5a237384ff4d2b32a35c85aa9cdad4959600a.jpg"
+            alt="Mujer preparando velas en un estudio organizado con insumos y herramientas"
+            width="1200"
+            height="1200"
+            loading="lazy"
+          />
+          <div class="hero-card-body">
+            Comprar bien también forma parte del oficio. Una marca Velspace fuerte se apoya en buenas decisiones, buenos materiales y una organización que te dé paz.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="proveedores">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Proveedores recomendados para investigar</h2>
+            <p>
+              Esta lista no es para comprar a ciegas, sino para que tengas una base seria desde la cual comparar precios, tiempos de envío, formatos y calidad.
+            </p>
+          </div>
+          <button class="btn-complete" type="button" data-complete-target="proveedores">Marcar sección como completada</button>
+        </div>
+
+        <div class="provider-grid fade-up">
+          <article class="provider-card">
+            <span class="pill">España</span>
+            <h3>Gran Velada</h3>
+            <p>
+              Muy conocida para velas, cosmética artesanal, fragancias, colorantes, moldes y packaging. Ideal para explorar variedad y entender categorías.
+            </p>
+            <ul>
+              <li>Útil para comparar tipos de cera y accesorios.</li>
+              <li>Buen punto de referencia para packaging y acabados.</li>
+              <li>Sitio recomendado para mirar tendencias de producto.</li>
+            </ul>
+          </article>
+
+          <article class="provider-card">
+            <span class="pill">México</span>
+            <h3>Candle Solutions</h3>
+            <p>
+              Proveedor enfocado en insumos para velas al mayoreo, con materiales frecuentes para marcas que quieren escalar o producir con continuidad.
+            </p>
+            <ul>
+              <li>Interesante para revisar compras por volumen.</li>
+              <li>Sirve para comparar costo por kilo y por caja.</li>
+              <li>Conviene revisar fichas técnicas antes de comprar.</li>
+            </ul>
+          </article>
+
+          <article class="provider-card">
+            <span class="pill">Chile</span>
+            <h3>Samsa Aromas / Spacio Natural / Vimora</h3>
+            <p>
+              Si trabajas desde Chile, vale la pena comparar proveedores locales para reducir tiempos de espera y mejorar la reposición.
+            </p>
+            <ul>
+              <li>Útiles para ceras, fragancias y pabilos.</li>
+              <li>Mejoran la velocidad de abastecimiento.</li>
+              <li>Pueden ayudarte a probar menos cantidad al inicio.</li>
+            </ul>
+          </article>
+
+          <article class="provider-card">
+            <span class="pill">Argentina</span>
+            <h3>Proveedores artesanales locales</h3>
+            <p>
+              En Argentina conviene mirar tiendas de insumos para velas, jabonería y packaging artesanal, especialmente si quieres comenzar con compras pequeñas.
+            </p>
+            <ul>
+              <li>Compara costo unitario y promociones por pack.</li>
+              <li>Pregunta siempre si la fragancia es apta para velas.</li>
+              <li>Valora mucho el costo real del envío.</li>
+            </ul>
+          </article>
+
+          <article class="provider-card">
+            <span class="pill">Colombia</span>
+            <h3>Distribuidores de insumos creativos</h3>
+            <p>
+              Revisa tiendas enfocadas en manualidades, jabonería y velas decorativas. Muchas veces ofrecen moldes, ceras y colorantes en formatos accesibles.
+            </p>
+            <ul>
+              <li>Buenos para empezar con menor inversión.</li>
+              <li>Ideales para validar productos antes de escalar.</li>
+              <li>Compara precio por gramo, no solo el precio final.</li>
+            </ul>
+          </article>
+
+          <article class="provider-card">
+            <span class="pill">Consejo Velspace</span>
+            <h3>No dependas de un solo proveedor</h3>
+            <p>
+              Lo más inteligente es tener una lista corta de respaldo: un proveedor principal, uno secundario y uno para emergencias.
+            </p>
+            <ul>
+              <li>Te protege frente a quiebres de stock.</li>
+              <li>Evita detener ventas por una sola falta de insumo.</li>
+              <li>Te da más poder para comparar y decidir mejor.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="compras">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Cómo hacer compras inteligentes</h2>
+            <p>
+              Aquí está una de las diferencias entre una aficionada y una emprendedora: comprar con cabeza, no con emoción del momento.
+            </p>
+          </div>
+          <button class="btn-complete" type="button" data-complete-target="compras">Marcar sección como completada</button>
+        </div>
+
+        <div class="two-col grid fade-up">
+          <article class="card">
+            <h3>Qué mirar antes de comprar</h3>
+            <ul>
+              <li><strong>Precio por kilo o por unidad real:</strong> no te fijes solo en el precio total del producto.</li>
+              <li><strong>Compatibilidad:</strong> no toda fragancia sirve para toda cera, ni toda mecha sirve para todo diámetro.</li>
+              <li><strong>Tiempo de envío:</strong> a veces lo barato sale caro si te deja sin stock una semana.</li>
+              <li><strong>Cantidad mínima:</strong> si estás comenzando, puede ser mejor pagar un poco más y probar menos.</li>
+              <li><strong>Reseñas o reputación:</strong> revisa comentarios, redes y experiencia de otras creadoras.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Errores comunes al comprar insumos</h3>
+            <ul>
+              <li>Comprar demasiadas fragancias en vez de validar primero cuáles gustan más.</li>
+              <li>Llenarte de moldes lindos antes de dominar una sola línea de producto.</li>
+              <li>No calcular el costo del envío dentro del costo real.</li>
+              <li>Elegir un proveedor solo por estética de su web.</li>
+              <li>Comprar “por si acaso” y terminar con stock inmovilizado.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="note-box fade-up" style="margin-top: 1rem;">
+          <p>
+            <strong>Regla Velspace:</strong> antes de comprar algo nuevo, pregúntate:
+            “¿Esto me ayuda a vender mejor, producir mejor o presentar mejor mi marca?”
+            Si la respuesta es no, probablemente puede esperar.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculadora">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Calculadora simple de compra por proveedor</h2>
+            <p>
+              Esta herramienta te ayuda a comparar si realmente te conviene un proveedor cuando sumas producto, envío y cantidad comprada.
+            </p>
+          </div>
+          <button class="btn-complete" type="button" data-complete-target="calculadora">Marcar sección como completada</button>
+        </div>
+
+        <div class="two-col grid fade-up">
+          <article class="calc-box">
+            <h3>Comparador Velspace</h3>
+            <div class="calc-grid">
+              <div class="calc-row">
+                <label for="precioProducto">Precio total del producto</label>
+                <input id="precioProducto" type="number" min="0" step="0.01" placeholder="Ej: 24.90" />
+              </div>
+
+              <div class="calc-row">
+                <label for="envioProducto">Costo de envío</label>
+                <input id="envioProducto" type="number" min="0" step="0.01" placeholder="Ej: 5.90" />
+              </div>
+
+              <div class="calc-row">
+                <label for="cantidadProducto">Cantidad comprada</label>
+                <input id="cantidadProducto" type="number" min="1" step="1" placeholder="Ej: 4" />
+              </div>
+
+              <div class="calc-row">
+                <label for="tipoCompra">Tipo de compra</label>
+                <select id="tipoCompra">
+                  <option value="unidad">Por unidad</option>
+                  <option value="kilo">Por kilo</option>
+                  <option value="pack">Por pack</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="calc-btn" id="calcBtn" type="button">Calcular costo real</button>
+
+            <div class="calc-result" id="calcResult">
+              Aquí verás el costo real por unidad, kilo o pack después de sumar envío.
+            </div>
+          </article>
+
+          <article class="tool-card">
+            <span class="pill">Cómo usarla</span>
+            <h3>Qué te muestra esta calculadora</h3>
+            <ul>
+              <li>El costo total real de la compra.</li>
+              <li>El costo promedio por unidad o pack.</li>
+              <li>Una lectura simple para decidir si esa compra conviene o no.</li>
+            </ul>
+
+            <p style="margin-top: 0.8rem;">
+              A veces un proveedor parece barato, pero al sumar envío termina costando más. Este pequeño cálculo te evita decisiones impulsivas.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="organizacion">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Organización de stock y compras futuras</h2>
+            <p>
+              No basta con comprar bien; también necesitas saber qué tienes, qué se está acabando y qué sí vale la pena reponer.
+            </p>
+          </div>
+          <button class="btn-complete" type="button" data-complete-target="organizacion">Marcar sección como completada</button>
+        </div>
+
+        <div class="tool-grid fade-up">
+          <article class="check-card">
+            <span class="pill">Checklist Velspace</span>
+            <h3>Checklist de abastecimiento</h3>
+            <div class="checklist">
+              <label class="check-item"><input type="checkbox" data-check="1" /> Tengo una lista de mis 5 insumos esenciales.</label>
+              <label class="check-item"><input type="checkbox" data-check="2" /> Sé cuál es mi proveedor principal de cera.</label>
+              <label class="check-item"><input type="checkbox" data-check="3" /> Tengo al menos un proveedor de respaldo.</label>
+              <label class="check-item"><input type="checkbox" data-check="4" /> Estoy registrando qué fragancias se venden mejor.</label>
+              <label class="check-item"><input type="checkbox" data-check="5" /> Sé cuánto tiempo tarda en llegar cada pedido.</label>
+              <label class="check-item"><input type="checkbox" data-check="6" /> Estoy evitando comprar por impulso.</label>
+            </div>
+            <div class="save-status" id="checkStatus">Tu checklist se puede ir marcando mientras estudias el módulo.</div>
+          </article>
+
+          <article class="card">
+            <h3>Tu mini sistema de reposición</h3>
+            <ul>
+              <li><strong>Zona verde:</strong> tienes suficiente stock para seguir vendiendo tranquila.</li>
+              <li><strong>Zona amarilla:</strong> ya conviene preparar reposición.</li>
+              <li><strong>Zona roja:</strong> no deberías aceptar nuevas ventas sin reponer.</li>
+            </ul>
+            <p style="margin-top: 0.75rem;">
+              Puedes aplicar esto a cera, mechas, etiquetas, cajas y fragancias estrella. Mientras más simple sea tu sistema, más fácil será cumplirlo.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Qué conviene comprar al por mayor primero</h3>
+            <ul>
+              <li>Cera de tu línea principal.</li>
+              <li>Mechas del tamaño que más usas.</li>
+              <li>Envases o cajas del producto más vendido.</li>
+              <li>Etiquetas base sin fecha ni aroma fijo.</li>
+            </ul>
+            <p style="margin-top: 0.75rem;">
+              Lo que todavía no rota bien —por ejemplo, moldes especiales o fragancias muy raras— mejor cómpralo en pequeño hasta validar.
+            </p>
+          </article>
+
+          <article class="note-box">
+            <p>
+              <strong>Tip de oro Velspace:</strong> si una fragancia o formato no se vende en 30 a 45 días, no sigas comprándolo solo porque a ti te parece lindo.
+              Deja que tu negocio te enseñe qué merece espacio en tu mesa y en tu presupuesto.
+            </p>
+          </article>
+        </div>
+
+        <div class="card fade-up" style="margin-top: 1rem;">
+          <h3>Plantilla rápida para comparar proveedores</h3>
+          <p>
+            Copia esta estructura en tus notas, Excel o Google Sheets y úsala cada vez que evalúes una compra:
+          </p>
+          <ul style="margin-top: 0.8rem; padding-left: 1rem;">
+            <li>Nombre del proveedor</li>
+            <li>Producto</li>
+            <li>Precio del producto</li>
+            <li>Envío</li>
+            <li>Cantidad</li>
+            <li>Costo real por unidad</li>
+            <li>Tiempo de entrega</li>
+            <li>Calidad percibida</li>
+            <li>¿Volvería a comprar aquí?</li>
+          </ul>
+          <button class="copy-btn" id="copyTemplateBtn" type="button" style="margin-top: 1rem;">Copiar plantilla</button>
+          <div class="copy-status" id="copyTemplateStatus"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Preguntas frecuentes del módulo 8</h2>
+            <p>
+              Estas dudas aparecen muchísimo cuando una alumna de Velspace empieza a comprar sus insumos con intención de negocio.
+            </p>
+          </div>
+          <button class="btn-complete" type="button" data-complete-target="faq">Marcar sección como completada</button>
+        </div>
+
+        <div class="faq-grid fade-up">
+          <article class="faq-item">
+            <h3>¿Compro barato o compro calidad?</h3>
+            <p>
+              Lo ideal es encontrar un equilibrio. Si compras demasiado barato y la calidad falla, terminas perdiendo tiempo, producto y confianza.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>¿Cuándo conviene comprar al por mayor?</h3>
+            <p>
+              Cuando ya validaste que un material forma parte de tu línea base y sabes que lo usarás de verdad en las próximas semanas.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>¿Debo tener muchos proveedores?</h3>
+            <p>
+              No muchísimos, pero sí al menos uno principal y uno de respaldo. Eso te da margen si algo falla.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>¿Cómo sé si estoy comprando demasiado?</h3>
+            <p>
+              Si tus cajas se llenan de materiales que no estás usando o si no recuerdas qué tienes, probablemente ya estás comprando de más.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Velspace</strong> · Módulo 8: Proveedores, Compras Inteligentes y Abastecimiento.</p>
+      <p>Archivo listo para guardar como <strong>modulo-8.html</strong> y subir a tu repositorio.</p>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const progressBar = document.getElementById("progressBar");
+      const updateProgress = () => {
+        const scrollTop = window.scrollY;
+        const height = document.documentElement.scrollHeight - window.innerHeight;
+        const percent = height > 0 ? (scrollTop / height) * 100 : 0;
+        progressBar.style.width = percent + "%";
+      };
+      window.addEventListener("scroll", updateProgress, { passive: true });
+      window.addEventListener("resize", updateProgress);
+      updateProgress();
+    })();
+
+    (() => {
+      const root = document.documentElement;
+      const themeToggle = document.getElementById("themeToggle");
+      let currentTheme = "light";
+      themeToggle.addEventListener("click", () => {
+        currentTheme = currentTheme === "light" ? "dark" : "light";
+        root.setAttribute("data-theme", currentTheme);
+      });
+    })();
+
+    (() => {
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileNav = document.getElementById("mobileNav");
+      if (!menuToggle) return;
+      menuToggle.addEventListener("click", () => {
+        mobileNav.classList.toggle("open");
+      });
+    })();
+
+    (() => {
+      const calcBtn = document.getElementById("calcBtn");
+      const result = document.getElementById("calcResult");
+
+      calcBtn.addEventListener("click", () => {
+        const precio = parseFloat(document.getElementById("precioProducto").value) || 0;
+        const envio = parseFloat(document.getElementById("envioProducto").value) || 0;
+        const cantidad = parseFloat(document.getElementById("cantidadProducto").value) || 0;
+        const tipo = document.getElementById("tipoCompra").value;
+
+        if (precio <= 0 || cantidad <= 0) {
+          result.innerHTML = "Por favor ingresa un precio válido y una cantidad mayor a cero.";
+          return;
+        }
+
+        const total = precio + envio;
+        const unitario = total / cantidad;
+
+        let etiqueta = "unidad";
+        if (tipo === "kilo") etiqueta = "kilo";
+        if (tipo === "pack") etiqueta = "pack";
+
+        result.innerHTML = `
+          <strong style="color: var(--primary-strong); display:block; margin-bottom: 0.35rem;">Resultado Velspace</strong>
+          <div>Compra total: <strong>${total.toFixed(2)}</strong></div>
+          <div>Costo real por ${etiqueta}: <strong>${unitario.toFixed(2)}</strong></div>
+          <div style="margin-top:0.5rem;">
+            ${envio > 0
+              ? "Perfecto: ya estás viendo el costo real incluyendo envío, que es el dato que de verdad importa."
+              : "Consejo: si aún no agregas envío, recuerda incluirlo para tomar una decisión más realista."}
+          </div>
+        `;
+      });
+    })();
+
+    (() => {
+      const btn = document.getElementById("copyTemplateBtn");
+      const status = document.getElementById("copyTemplateStatus");
+      const template = [
+        "Plantilla Velspace para comparar proveedores",
+        "Nombre del proveedor:",
+        "Producto:",
+        "Precio del producto:",
+        "Envío:",
+        "Cantidad:",
+        "Costo real por unidad:",
+        "Tiempo de entrega:",
+        "Calidad percibida:",
+        "¿Volvería a comprar aquí?"
+      ].join("\n");
+
+      btn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(template);
+          status.textContent = "Plantilla copiada correctamente.";
+        } catch {
+          status.textContent = "No se pudo copiar automáticamente.";
+        }
+      });
+    })();
+
+    (() => {
+      const boxes = document.querySelectorAll("[data-check]");
+      const checkStatus = document.getElementById("checkStatus");
+
+      boxes.forEach(box => {
+        box.addEventListener("change", () => {
+          const checked = [...boxes].filter(item => item.checked).length;
+          checkStatus.textContent = `Llevas ${checked} de ${boxes.length} puntos marcados en tu checklist.`;
+        });
+      });
+    })();
+
+    (() => {
+      document.querySelectorAll("[data-complete-target]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const completed = btn.dataset.completed === "true";
+          btn.dataset.completed = completed ? "false" : "true";
+          btn.textContent = completed ? "Marcar sección como completada" : "Sección completada";
+        });
+      });
+
+      const markModuleBtn = document.getElementById("markModuleBtn");
+      markModuleBtn.addEventListener("click", () => {
+        markModuleBtn.textContent = markModuleBtn.textContent.includes("completado")
+          ? "Marcar módulo como completado"
+          : "Módulo completado";
+      });
+    })();
+
+    (() => {
+      const els = document.querySelectorAll(".fade-up");
+      if (!("IntersectionObserver" in window)) {
+        els.forEach(el => el.classList.add("visible"));
+        return;
+      }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+      els.forEach(el => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>
