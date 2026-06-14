@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velspace | Módulo 10: Contacto y Soporte Velspace</title>
+  <meta
+    name="description"
+    content="Módulo 10 del curso Velspace: Contacto y Soporte Velspace. Atención a alumnas, seguimiento, acompañamiento y soporte para emprendedoras de velas artesanales."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --bg: #f8f2eb;
+      --bg-soft: #fcf8f4;
+      --surface: #fffdfa;
+      --surface-2: #f3e8dc;
+      --line: rgba(74, 52, 38, 0.12);
+      --line-strong: rgba(74, 52, 38, 0.2);
+      --text: #2a1d14;
+      --muted: #705f54;
+      --soft: #a08f83;
+      --primary: #b97743;
+      --primary-dark: #9c5f2f;
+      --accent: #d5ab78;
+      --success: #56735c;
+      --danger: #b85a5a;
+      --radius-sm: 0.75rem;
+      --radius-md: 1.1rem;
+      --radius-lg: 1.6rem;
+      --radius-full: 999px;
+      --shadow-sm: 0 10px 30px rgba(53, 34, 21, 0.06);
+      --shadow-md: 0 24px 60px rgba(53, 34, 21, 0.1);
+      --font-display: "Cormorant Garamond", serif;
+      --font-body: "Inter", sans-serif;
+      --max: 1120px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #16110d;
+      --bg-soft: #1b1511;
+      --surface: #211913;
+      --surface-2: #2a2019;
+      --line: rgba(255, 240, 226, 0.1);
+      --line-strong: rgba(255, 240, 226, 0.18);
+      --text: #f6eee7;
+      --muted: #d5c4b7;
+      --soft: #9f8d81;
+      --primary: #d39a63;
+      --primary-dark: #e6b383;
+      --accent: #efc28c;
+      --success: #88b08f;
+      --danger: #e28a8a;
+      --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.28);
+      --shadow-md: 0 24px 60px rgba(0, 0, 0, 0.36);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      background:
+        radial-gradient(circle at top right, rgba(213, 171, 120, 0.16), transparent 22%),
+        radial-gradient(circle at bottom left, rgba(185, 119, 67, 0.1), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(248, 242, 235, 0.78);
+      border-bottom: 1px solid var(--line);
+    }
+
+    [data-theme="dark"] .topbar {
+      background: rgba(22, 17, 13, 0.78);
+    }
+
+    .topbar-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .brand-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      background: linear-gradient(135deg, rgba(213, 171, 120, 0.2), rgba(185, 119, 67, 0.08));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      line-height: 1;
+      letter-spacing: 0.01em;
+    }
+
+    .brand-copy span {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-top: 0.15rem;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .theme-toggle,
+    .back-btn {
+      min-height: 44px;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      transition: 0.22s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .theme-toggle:hover,
+    .back-btn:hover,
+    .btn:hover,
+    .card:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      padding: 3.5rem 0 2.25rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .hero-panel,
+    .hero-aside,
+    .card,
+    .form-card {
+      background: linear-gradient(180deg, var(--surface), var(--bg-soft));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-panel {
+      padding: 1.5rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      width: fit-content;
+      min-height: 34px;
+      padding: 0.45rem 0.8rem;
+      border-radius: var(--radius-full);
+      background: rgba(185, 119, 67, 0.08);
+      color: var(--primary);
+      border: 1px solid rgba(185, 119, 67, 0.12);
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-display);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 4.6rem);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 0.6rem;
+    }
+
+    h3 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+
+    .lead {
+      font-size: 1.03rem;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.2rem;
+    }
+
+    .btn {
+      min-height: 48px;
+      padding: 0.9rem 1.15rem;
+      border: none;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.22s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fffaf5;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--line-strong);
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .meta-item {
+      background: rgba(255, 255, 255, 0.35);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 0.95rem;
+    }
+
+    [data-theme="dark"] .meta-item {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .meta-item strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.18rem;
+    }
+
+    .meta-item span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-aside {
+      overflow: hidden;
+    }
+
+    .hero-aside img {
+      width: 100%;
+      aspect-ratio: 4 / 4.4;
+      object-fit: cover;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-aside-copy {
+      padding: 1.1rem 1.2rem 1.25rem;
+      color: var(--muted);
+    }
+
+    section {
+      padding: 1rem 0 3rem;
+    }
+
+    .section-head {
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card {
+      padding: 1.2rem;
+      transition: 0.22s ease;
+    }
+
+    .card p,
+    .card li,
+    .form-card p {
+      color: var(--muted);
+    }
+
+    .card ul {
+      padding-left: 1.1rem;
+      margin-top: 0.65rem;
+    }
+
+    .card li + li {
+      margin-top: 0.45rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: var(--radius-full);
+      background: rgba(213, 171, 120, 0.14);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 700;
+      width: fit-content;
+      margin-bottom: 0.7rem;
+    }
+
+    .contact-grid,
+    .support-grid,
+    .faq-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .support-pillars {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .form-card {
+      padding: 1.2rem;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .field label {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--soft);
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      border: 1px solid var(--line-strong);
+      border-radius: 1rem;
+      background: var(--surface);
+      color: var(--text);
+      padding: 0.95rem 1rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(185, 119, 67, 0.12);
+    }
+
+    .note-box {
+      margin-top: 1rem;
+      padding: 0.95rem 1rem;
+      border-radius: 1rem;
+      background: rgba(86, 115, 92, 0.08);
+      border: 1px solid rgba(86, 115, 92, 0.15);
+      color: var(--success);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.7rem;
+    }
+
+    .mini-item {
+      padding: 0.95rem;
+      border-radius: 1rem;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.34);
+    }
+
+    [data-theme="dark"] .mini-item {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      overflow: hidden;
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      width: 100%;
+      min-height: 56px;
+      border: none;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      text-align: left;
+      padding: 1rem 1rem;
+      font-weight: 700;
+    }
+
+    .faq-question span:last-child {
+      color: var(--primary);
+      font-size: 1.25rem;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item.open .faq-question span:last-child {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.28s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      grid-template-rows: 1fr;
+    }
+
+    .faq-answer > div {
+      overflow: hidden;
+    }
+
+    .faq-answer p {
+      padding: 0 1rem 1rem;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .footer-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (min-width: 860px) {
+      .hero-grid {
+        grid-template-columns: 1.12fr 0.88fr;
+        align-items: stretch;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1.05fr 0.95fr;
+      }
+
+      .support-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .faq-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .support-pillars {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .fade-up {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-badge" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3c1.8 2.4 3.7 4.8 3.7 7.2a3.7 3.7 0 1 1-7.4 0C8.3 7.8 10.2 5.4 12 3Z"></path>
+            <path d="M12 14v7"></path>
+            <path d="M8 21h8"></path>
+          </svg>
+        </div>
+        <div class="brand-copy">
+          <strong>Velspace</strong>
+          <span>Módulo 10 · Contacto y Soporte</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="back-btn" href="./index.html">Volver al curso</a>
+        <button class="theme-toggle" type="button" id="themeToggle" aria-label="Cambiar modo de color">◐</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <article class="hero-panel fade-up">
+          <span class="eyebrow">Velspace · Acompañamiento final</span>
+          <h1>Contacto y Soporte Velspace</h1>
+          <p class="lead">
+            Llegaste al cierre del curso, pero no al final del camino. Este módulo de <strong>Velspace</strong> está pensado para acompañarte cuando empieces a practicar, vender, poner precios, mostrar tus velas o resolver dudas reales de tu emprendimiento.
+          </p>
+          <p class="lead">
+            Aquí vas a encontrar una estructura lista para copiar, pegar y usar como página final de soporte, contacto y seguimiento para tus alumnas o clientas.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#formulario" class="btn btn-primary">Ir al formulario</a>
+            <a href="#faq" class="btn btn-secondary">Ver preguntas frecuentes</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="meta-item">
+              <strong>Soporte humano</strong>
+              <span>Respuestas cálidas, claras y orientadas a resultados reales.</span>
+            </div>
+            <div class="meta-item">
+              <strong>Marca Velspace</strong>
+              <span>Un cierre profesional para reforzar tu producto digital premium.</span>
+            </div>
+            <div class="meta-item">
+              <strong>Lista para vender</strong>
+              <span>Ideal para cursos, ebooks premium y programas de acompañamiento.</span>
+            </div>
+            <div class="meta-item">
+              <strong>Mobile-first</strong>
+              <span>Diseñado para verse bien en celular, tablet y desktop.</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="hero-aside fade-up">
+          <img
+            src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=1200&q=80"
+            alt="Espacio cálido de trabajo con vela encendida, libreta y taza, representando el soporte cercano de Velspace"
+            width="1200"
+            height="1400"
+            loading="lazy"
+          />
+          <div class="hero-aside-copy">
+            <strong style="display:block; margin-bottom:0.35rem; color:var(--text);">Velspace te acompaña después del curso</strong>
+            <p>
+              Porque aprender a hacer velas no solo es técnica: también es seguridad, confianza, práctica y una mano amiga cuando surgen dudas.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head fade-up">
+          <div>
+            <h2>Qué incluye este módulo</h2>
+            <p>
+              Este bloque final está pensado para darle más valor a tu curso y reforzar la experiencia premium de Velspace con atención, contención y estructura.
+            </p>
+          </div>
+        </div>
+
+        <div class="support-grid">
+          <article class="card fade-up">
+            <span class="tag">1 · Contacto</span>
+            <h3>Canales claros</h3>
+            <p>
+              Incluye correo, Instagram, WhatsApp o el medio que prefieras para centralizar dudas de tus alumnas y futuras clientas.
+            </p>
+          </article>
+
+          <article class="card fade-up">
+            <span class="tag">2 · Seguimiento</span>
+            <h3>Respuesta con criterio</h3>
+            <p>
+              No solo se trata de contestar rápido, sino de responder con orden, cercanía y recomendaciones útiles para que la alumna avance.
+            </p>
+          </article>
+
+          <article class="card fade-up">
+            <span class="tag">3 · Confianza</span>
+            <h3>Cierre premium</h3>
+            <p>
+              Un buen módulo final transmite que detrás de Velspace hay una marca seria, humana y lista para acompañar de verdad.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="formulario">
+      <div class="container contact-grid">
+        <article class="form-card fade-up">
+          <div class="section-head" style="margin-bottom:0;">
+            <div>
+              <h2>Formulario de contacto Velspace</h2>
+              <p>
+                Puedes conectar este formulario a Formspree, Netlify Forms, Google Forms o cualquier herramienta que uses para recibir mensajes.
+              </p>
+            </div>
+          </div>
+
+          <form class="form-grid" id="contactForm">
+            <div class="field">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Ej: María Fernanda" required />
+            </div>
+
+            <div class="field">
+              <label for="correo">Correo electrónico</label>
+              <input type="email" id="correo" name="correo" placeholder="Ej: hola@correo.com" required />
+            </div>
+
+            <div class="field">
+              <label for="pais">País o ciudad</label>
+              <input type="text" id="pais" name="pais" placeholder="Ej: Santiago, Chile" />
+            </div>
+
+            <div class="field">
+              <label for="tema">Tema de tu mensaje</label>
+              <select id="tema" name="tema">
+                <option value="soporte-curso">Soporte del curso</option>
+                <option value="materiales">Dudas sobre materiales</option>
+                <option value="costos">Ayuda con costos y precios</option>
+                <option value="marketing">Ayuda con ventas y redes</option>
+                <option value="acompanamiento">Quiero acompañamiento personalizado</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="mensaje">Cuéntanos tu duda</label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                placeholder="Escríbenos con calma qué necesitas: por ejemplo, si tu vela se hunde en el centro, si no sabes qué mecha elegir, o si quieres revisar precios y presentación."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+          </form>
+
+          <div class="note-box" id="formMessage" aria-live="polite">
+            Este formulario está listo para copiar y pegar. Si aún no lo conectas a un servicio real, puedes dejarlo como maqueta visual dentro del curso.
+          </div>
+        </article>
+
+        <aside class="grid">
+          <article class="card fade-up">
+            <span class="tag">Contacto sugerido</span>
+            <h3>Datos de soporte</h3>
+            <div class="mini-list">
+              <div class="mini-item">
+                <strong style="display:block; margin-bottom:0.2rem;">Correo</strong>
+                <p>hola@velspace.cl</p>
+              </div>
+              <div class="mini-item">
+                <strong style="display:block; margin-bottom:0.2rem;">Instagram</strong>
+                <p>@velspace.oficial</p>
+              </div>
+              <div class="mini-item">
+                <strong style="display:block; margin-bottom:0.2rem;">WhatsApp de soporte</strong>
+                <p>+56 9 0000 0000</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card fade-up">
+            <span class="tag">Tiempos</span>
+            <h3>Promesa de respuesta</h3>
+            <ul>
+              <li>Responder dentro de 24 a 48 horas hábiles.</li>
+              <li>Priorizar dudas técnicas sobre fabricación y seguridad.</li>
+              <li>Ofrecer acompañamiento pago si la alumna necesita revisión personalizada.</li>
+            </ul>
+          </article>
+
+          <article class="card fade-up">
+            <span class="tag">Idea premium</span>
+            <h3>Cómo elevar el valor de tu curso</h3>
+            <p>
+              Puedes ofrecer una versión base del ebook y una versión premium con revisión de fórmulas, análisis de precios, feedback de branding o una mini mentoría por videollamada.
+            </p>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head fade-up">
+          <div>
+            <h2>Soporte que realmente ayuda</h2>
+            <p>
+              El objetivo no es solo contestar mensajes. Es ayudar a que la alumna se sienta capaz, acompañada y segura de seguir avanzando con su proyecto.
+            </p>
+          </div>
+        </div>
+
+        <div class="support-pillars">
+          <article class="card fade-up">
+            <span class="tag">Técnico</span>
+            <h3>Dudas sobre velas</h3>
+            <p>
+              Problemas de hundimiento, mechas, aroma, temperatura, mezcla de ceras, colorantes, curado o seguridad al trabajar.
+            </p>
+          </article>
+
+          <article class="card fade-up">
+            <span class="tag">Negocio</span>
+            <h3>Dudas sobre ventas</h3>
+            <p>
+              Cómo poner precio, qué fotos subir, cómo presentar packs, cómo vender en fechas especiales o cómo empezar en Instagram.
+            </p>
+          </article>
+
+          <article class="card fade-up">
+            <span class="tag">Emocional</span>
+            <h3>Dudas de confianza</h3>
+            <p>
+              Muchas alumnas no necesitan solo información: también necesitan validación, claridad y una voz cercana que les diga “vas bien”.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head fade-up">
+          <div>
+            <h2>Preguntas frecuentes del soporte Velspace</h2>
+            <p>
+              Este bloque también está listo para copiar y pegar. Puedes dejarlo tal cual o editarlo según tu forma real de trabajar con alumnas y clientas.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-grid">
+          <article class="faq-item fade-up open">
+            <button class="faq-question" type="button">
+              <span>¿Cuánto tarda Velspace en responder?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <div>
+                <p>
+                  El tiempo sugerido de respuesta es de 24 a 48 horas hábiles. Si quieres ofrecer una experiencia más premium, puedes prometer respuesta prioritaria en menos tiempo para alumnas VIP.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item fade-up">
+            <button class="faq-question" type="button">
+              <span>¿Puedo pedir ayuda con una fórmula o una receta?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <div>
+                <p>
+                  Sí. Puedes orientar a la alumna para revisar cantidades, proporciones de fragancia, tipo de mecha, envase y posibles ajustes sin necesidad de complicar la explicación.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item fade-up">
+            <button class="faq-question" type="button">
+              <span>¿Este soporte incluye asesoría de negocio?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <div>
+                <p>
+                  Puede incluirla si tú lo decides. Una buena estrategia es dejar el soporte básico dentro del curso y ofrecer asesorías más profundas como un servicio adicional.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item fade-up">
+            <button class="faq-question" type="button">
+              <span>¿Qué pasa si una alumna necesita ayuda más personalizada?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <div>
+                <p>
+                  Puedes invitarla a una sesión individual, revisión por audio o mini mentoría. Esto aumenta el valor percibido del ecosistema Velspace y crea nuevas fuentes de ingreso.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <article class="card fade-up" style="padding:1.4rem;">
+          <span class="tag">Cierre Velspace</span>
+          <h2 style="margin-bottom:0.5rem;">Gracias por llegar hasta aquí</h2>
+          <p style="max-width:68ch;">
+            Este módulo 10 cierra el curso con una sensación de contención, profesionalismo y marca. No solo enseñas a hacer velas: construyes una experiencia bonita, cálida y confiable. Eso también vende.
+          </p>
+          <div class="hero-actions" style="margin-top:1rem;">
+            <a href="./index.html" class="btn btn-primary">Volver al inicio del curso</a>
+            <a href="#formulario" class="btn btn-secondary">Editar formulario</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-box">
+      <strong style="font-family:var(--font-display); font-size:1.4rem; color:var(--text);">Velspace</strong>
+      <p>Módulo 10 · Contacto y Soporte Velspace.</p>
+      <p>Diseñado para cerrar tu curso premium con una experiencia elegante, clara y cercana.</p>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const btn = document.getElementById("themeToggle");
+      let theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.setAttribute("data-theme", theme);
+
+      const renderIcon = () => {
+        btn.textContent = theme === "dark" ? "☀" : "◐";
+        btn.setAttribute(
+          "aria-label",
+          theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"
+        );
+      };
+
+      renderIcon();
+
+      btn.addEventListener("click", () => {
+        theme = theme === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", theme);
+        renderIcon();
+      });
+    })();
+
+    (() => {
+      const form = document.getElementById("contactForm");
+      const message = document.getElementById("formMessage");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const nombre = document.getElementById("nombre").value.trim();
+
+        message.textContent = nombre
+          ? `Gracias, ${nombre}. Este formulario de Velspace está funcionando como demostración visual. Cuando lo conectes a tu servicio favorito, aquí recibirás los mensajes reales.`
+          : "Gracias. Este formulario de Velspace está funcionando como demostración visual. Cuando lo conectes a tu servicio favorito, aquí recibirás los mensajes reales.";
+
+        form.reset();
+      });
+    })();
+
+    (() => {
+      const items = document.querySelectorAll(".faq-item");
+
+      items.forEach((item) => {
+        const btn = item.querySelector(".faq-question");
+        btn.addEventListener("click", () => {
+          const isOpen = item.classList.contains("open");
+          items.forEach((el) => el.classList.remove("open"));
+          if (!isOpen) item.classList.add("open");
+        });
+      });
+    })();
+
+    (() => {
+      const els = document.querySelectorAll(".fade-up");
+
+      if (!("IntersectionObserver" in window)) {
+        els.forEach((el) => el.classList.add("visible"));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      els.forEach((el) => io.observe(el));
+    })();
+  </script>
+</body>
+</html>
