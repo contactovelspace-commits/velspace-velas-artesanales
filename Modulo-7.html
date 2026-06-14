@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velspace | Módulo 7: Galería de Inspiración y Branding Visual</title>
+  <meta name="description" content="Módulo 7 de Velspace: aprende a construir una galería de inspiración, definir el estilo visual de tus velas artesanales y elevar tu marca con imágenes, colores y presentación premium.">
+  <meta name="author" content="Velspace">
+  <meta name="theme-color" content="#f4ece4">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --bg: #f6eee7;
+      --bg-soft: #fbf7f2;
+      --surface: #fffdfa;
+      --surface-2: #f1e3d6;
+      --text: #32231d;
+      --text-soft: #705d50;
+      --text-muted: #9a7f6f;
+      --primary: #c88861;
+      --primary-strong: #a96c46;
+      --primary-soft: rgba(200, 136, 97, 0.12);
+      --gold: #d6b06e;
+      --rose: #ca7f6d;
+      --border: rgba(79, 58, 45, 0.14);
+      --shadow-sm: 0 10px 24px rgba(58, 37, 25, 0.08);
+      --shadow-md: 0 24px 64px rgba(58, 37, 25, 0.14);
+      --radius-sm: 0.8rem;
+      --radius-md: 1.25rem;
+      --radius-lg: 1.8rem;
+      --radius-pill: 999px;
+      --font-display: "Playfair Display", serif;
+      --font-body: "Inter", sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg: #171210;
+      --bg-soft: #1d1714;
+      --surface: #241c18;
+      --surface-2: #2f231d;
+      --text: #f7ede4;
+      --text-soft: #dac3b3;
+      --text-muted: #b89a86;
+      --primary: #ebb180;
+      --primary-strong: #f0c08f;
+      --primary-soft: rgba(235, 177, 128, 0.15);
+      --gold: #efc98f;
+      --rose: #ea9a85;
+      --border: rgba(255, 241, 226, 0.14);
+      --shadow-sm: 0 10px 24px rgba(0, 0, 0, 0.32);
+      --shadow-md: 0 24px 64px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background:
+        radial-gradient(circle at top right, rgba(214, 176, 110, 0.18), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(202, 127, 109, 0.12), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -50px;
+      left: 1rem;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-pill);
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    .progress-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      z-index: 90;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--rose), var(--gold));
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      backdrop-filter: blur(14px);
+      background: color-mix(in srgb, var(--bg) 84%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 42%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary-soft), rgba(255,255,255,0.45));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      color: var(--primary-strong);
+      flex-shrink: 0;
+    }
+
+    .brand-copy small {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.12rem;
+    }
+
+    .brand-copy strong {
+      font-family: var(--font-display);
+      font-size: 1.04rem;
+      letter-spacing: 0.02em;
+    }
+
+    .nav {
+      display: none;
+      gap: 1rem;
+      font-size: 0.93rem;
+      color: var(--text-soft);
+    }
+
+    .nav a:hover {
+      color: var(--primary-strong);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-soft);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mobile-nav {
+      display: none;
+      padding-bottom: 1rem;
+    }
+
+    .mobile-nav.open {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .mobile-nav a {
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-pill);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+      font-size: 0.92rem;
+    }
+
+    .hero {
+      padding: 3rem 0 2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 0.35rem 0.8rem;
+      border-radius: var(--radius-pill);
+      background: var(--primary-soft);
+      color: var(--primary-strong);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.35rem, 6vw, 4.1rem);
+      line-height: 1.03;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      color: var(--text-soft);
+      font-size: 1.03rem;
+      max-width: 38rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-complete,
+    .copy-btn {
+      min-height: 48px;
+      border-radius: var(--radius-pill);
+      padding: 0.9rem 1.2rem;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--rose), var(--gold));
+      color: #fff;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary,
+    .btn-complete,
+    .copy-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+    }
+
+    .hero-card,
+    .card,
+    .mood-card,
+    .gallery-item,
+    .light-card,
+    .palette-chip,
+    .faq-item,
+    .inspo-note {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-card {
+      overflow: hidden;
+    }
+
+    .hero-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .hero-card-body {
+      padding: 1rem;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    section {
+      padding: 2.5rem 0;
+    }
+
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 1.3rem;
+    }
+
+    .section-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.05;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-head p {
+      color: var(--text-soft);
+      max-width: 39rem;
+      font-size: 0.95rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card,
+    .mood-card,
+    .light-card,
+    .faq-item,
+    .inspo-note {
+      padding: 1.15rem;
+    }
+
+    .card h3,
+    .mood-card h3,
+    .light-card h3 {
+      margin-bottom: 0.45rem;
+      font-size: 1.06rem;
+    }
+
+    .card p,
+    .card li,
+    .mood-card p,
+    .light-card p,
+    .faq-item p,
+    .inspo-note p {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    .card ul,
+    .mood-card ul,
+    .light-card ul {
+      padding-left: 1rem;
+      margin-top: 0.7rem;
+    }
+
+    .card li + li,
+    .mood-card li + li,
+    .light-card li + li {
+      margin-top: 0.35rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      transition: transform 0.28s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 0.85rem;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.65));
+      color: #fff;
+      font-size: 0.85rem;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(8, 5, 4, 0.72);
+      z-index: 120;
+      padding: 1rem;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      width: min(920px, 100%);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .lightbox-inner img {
+      width: 100%;
+      max-height: 85vh;
+      object-fit: cover;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 0.8rem;
+      right: 0.8rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0,0,0,0.65);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .palette-grid {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .palette-chip {
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .swatch {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.08);
+      flex-shrink: 0;
+    }
+
+    .mood-grid,
+    .tip-grid,
+    .faq-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .copy-status {
+      margin-top: 0.45rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0 3rem;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (min-width: 760px) {
+      .hero-grid,
+      .two-col,
+      .mood-grid,
+      .tip-grid,
+      .faq-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .palette-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 980px) {
+      .nav {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .fade-up {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <div class="progress-wrap" aria-hidden="true">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand" aria-label="Ir al inicio del módulo 7 de Velspace">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3c1.9 2.2 4 4.8 4 7.4A4 4 0 1 1 8 10.4C8 7.8 10.1 5.2 12 3Z"></path>
+            <path d="M7 21h10"></path>
+          </svg>
+        </div>
+        <div class="brand-copy">
+          <small>Velspace · Módulo 7</small>
+          <strong>Galería de Inspiración y Branding Visual</strong>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navegación del módulo 7">
+        <a href="#inicio">Inicio</a>
+        <a href="#galeria">Galería</a>
+        <a href="#branding">Branding</a>
+        <a href="#paleta">Paleta</a>
+        <a href="#tips">Tips visuales</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambiar modo de color">◐</button>
+        <button class="icon-btn menu-btn" id="menuToggle" type="button" aria-label="Abrir menú">☰</button>
+      </div>
+    </div>
+
+    <div class="container mobile-nav" id="mobileNav" aria-label="Menú móvil">
+      <a href="#inicio">Inicio</a>
+      <a href="#galeria">Galería</a>
+      <a href="#branding">Branding</a>
+      <a href="#paleta">Paleta</a>
+      <a href="#tips">Tips visuales</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="fade-up">
+          <span class="eyebrow">Velspace · Inspiración visual</span>
+          <h1>Módulo 7: cómo hacer que tu marca se vea tan linda como tus velas</h1>
+          <p>
+            En este módulo de Velspace vamos a trabajar la parte visual de tu negocio: inspiración, estilo, colores, fotos, composición y ese “algo” que hace que una vela se vea casera o se vea completamente deseable.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="#galeria">Ver galería de inspiración</a>
+            <button class="btn-secondary" type="button" id="markModuleBtn">Marcar módulo como completado</button>
+          </div>
+        </div>
+
+        <aside class="hero-card fade-up">
+          <img
+            src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/49a01aac0c2aaa24fd0af35e65ae26cb4e7bd357.jpg"
+            alt="Vela decorativa premium sobre libros y elementos de hogar con estilo cálido"
+            width="1200"
+            height="1500"
+            loading="lazy"
+          />
+          <div class="hero-card-body">
+            Tu marca Velspace debe sentirse como una experiencia visual: suave, limpia, cálida y memorable desde la primera foto.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="container">
+        <div class="section-head fade-up">
+          <div>
+            <h2>Galería de inspiración Velspace</h2>
+            <p>Estas imágenes te ayudan a visualizar el estilo de producto, ambiente y presentación que puede tener tu marca.</p>
+          </div>
+          <button class="btn-complete" type="button" data-complete-target="galeria">Marcar sección como completada</button>
+        </div>
+
+        <div class="gallery-grid fade-up">
+          <figure class="gallery-item" data-lightbox="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/58f5659eb8a64e2bac3a98ad28bbf83e8a71f563.jpg">
+            <img src="https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512_smart/pplx_search_images/58f5659eb8a64e2bac3a98ad28bbf83e8a71f563.jpg" alt="Vela lujosa con empaque beige y dorado">
+            <figcaption class="gallery-caption">Línea minimalista premium para colección principal.</figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-lightbox="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6d705e4496403fd7e2b63e8e18a0bfa72940609d.jpg">
+            <img src="https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512_smart/pplx_search_images/6d705e4496403fd7e2b63e8e18a0bfa72940609d.jpg" alt="Vela en frasco con caja elegante y branding limpio">
+            <figcaption class="gallery-caption">Packaging delicado que eleva el valor percibido.</figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-lightbox="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/06b5a237384ff4d2b32a35c85aa9cdad4959600a.jpg">
+            <img src="https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512_smart/pplx_search_images/06b5a237384ff4d2b32a35c85aa9cdad4959600a.jpg" alt="Mujer preparando velas en un estudio acogedor">
+            <figcaption class="gallery-caption">Tu mesa de trabajo también forma parte de tu marca.</figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-lightbox="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/0e7188cb7eb0b1f057a1582e047aee4fa4ecd73e.jpg">
+            <img src="https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512/pplx_search_images/0e7188cb7eb0b1f057a1582e047aee4fa4ecd73e.jpg" alt="Taller de velas con varias personas trabajando">
+            <figcaption class="gallery-caption">Inspiración para talleres o contenido grupal en tu comunidad.</figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-lightbox="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/e0c7f1d4af46297674e0f541d5192baed3067b13.jpg">
+            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/e4e7f76c-d25b-5825-a8e7-589618f2b89c/3c501061-6efa-586c-b58c-bf05b3450014.jpg" alt="Moodboard de branding para velas, cajas y etiquetas">
+            <figcaption class="gallery-caption">Moodboard: cajas, etiquetas y materiales de marca.</figcaption>
+          </figure>
+
+          <figure class="gallery-item" data-lightbox="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/49a01aac0c2aaa24fd0af35e65ae26cb4e7bd357.jpg">
+            <img src="https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512_smart/pplx_search_images/49a01aac0c2aaa24fd0af35e65ae26cb4e7bd357.jpg" alt="Vela decorativa sobre libros y flores secas">
+            <figcaption class="gallery-caption">Escenas lifestyle que venden emoción, no solo producto.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="lightbox" id="lightbox" aria-modal="true" role="dialog">
+        <div class="lightbox-inner">
+          <img src="" alt="" id="lightboxImg">
+          <button class="lightbox-close" type="button" id="lightboxClose" aria-label="Cerrar imagen">✕</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="branding">
+      <div class="container">
+        <div class="section-head fade-up">
+          <div>
+            <h2>Cómo definir el estilo visual de tu marca</h2>
+            <p>Tu branding no tiene que ser complicado. Solo necesita coherencia. En Velspace trabajamos desde sensaciones simples y elegantes.</p>
+          </div>
+          <button class="btn-complete" type="button" data-complete-target="branding">Marcar sección como completada</button>
+        </div>
+
+        <div class="grid two-col fade-up">
+          <article class="mood-card">
+            <h3>Pregunta guía 1: ¿Qué quiero que sienta la clienta?</h3>
+            <ul>
+              <li>Calma y descanso.</li>
+              <li>Calidez de hogar.</li>
+              <li>Regalo fino y delicado.</li>
+              <li>Ritual personal de autocuidado.</li>
+            </ul>
+          </article>
+
+          <article class="mood-card">
+            <h3>Pregunta guía 2: ¿Cómo se ve esa emoción?</h3>
+            <ul>
+              <li>Tonos crema, beige, terracota, dorado suave.</li>
+              <li>Fotos con luz natural o cálida.</li>
+              <li>Fondos limpios y pocos elementos.</li>
+              <li>Etiquetas sencillas, no recargadas.</li>
+            </ul>
+          </article>
+
+          <article class="mood-card">
+            <h3>Qué sí conviene hacer</h3>
+            <ul>
+              <li>Usar una misma paleta en publicaciones y empaques.</li>
+              <li>Elegir 1 o 2 estilos de fotografía y repetirlos.</li>
+              <li>Mantener una estética que combine con tu clienta ideal.</li>
+            </ul>
+          </article>
+
+          <article class="mood-card">
+            <h3>Qué conviene evitar</h3>
+            <ul>
+              <li>Usar demasiados colores sin intención.</li>
+              <li>Subir fotos oscuras, desenfocadas o con mucho ruido visual.</li>
+              <li>Cambiar de estilo cada semana y confundir a tu audiencia.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="paleta">
+      <div class="container">
+        <div class="section-head fade-up">
+          <div>
+            <h2>Paleta de color sugerida para tu marca</h2>
+            <p>Aquí tienes una selección visual que funciona muy bien para velas artesanales con estética premium y femenina.</p>
+          </div>
+          <button class="btn-complete" type="button" data-complete-target="paleta">Marcar sección como completada</button>
+        </div>
+
+        <div class="palette-grid fade-up">
+          <div class="palette-chip">
+            <div class="swatch" style="background:#F6EEE7;"></div>
+            <div>
+              <strong>Crema suave</strong>
+              <p>Ideal para fondos, cajas, portadas y sensación limpia.</p>
+            </div>
+          </div>
+
+          <div class="palette-chip">
+            <div class="swatch" style="background:#E7D6C6;"></div>
+            <div>
+              <strong>Beige cálido</strong>
+              <p>Perfecto para etiquetas, papel de empaque y reels suaves.</p>
+            </div>
+          </div>
+
+          <div class="palette-chip">
+            <div class="swatch" style="background:#C88861;"></div>
+            <div>
+              <strong>Terracota elegante</strong>
+              <p>Sirve para acentos, logos pequeños y llamadas a la acción.</p>
+            </div>
+          </div>
+
+          <div class="palette-chip">
+            <div class="swatch" style="background:#D6B06E;"></div>
+            <div>
+              <strong>Dorado suave</strong>
+              <p>Aporta sensación premium sin verse excesivo.</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="copy-btn" id="copyPaletteBtn" type="button">Copiar paleta sugerida</button>
+        <p class="copy-status" id="copyPaletteStatus"></p>
+      </div>
+    </section>
+
+    <section id="tips">
+      <div class="container">
+        <div class="section-head fade-up">
+          <div>
+            <h2>Tips visuales para que tus fotos se vean mejor</h2>
+            <p>No necesitas un estudio profesional. Necesitas intención, orden y una buena mirada.</p>
+          </div>
+          <button class="btn-complete" type="button" data-complete-target="tips">Marcar sección como completada</button>
+        </div>
+
+        <div class="tip-grid fade-up">
+          <article class="light-card">
+            <h3>1. Usa luz lateral suave</h3>
+            <p>Coloca tu vela cerca de una ventana. Evita el sol directo fuerte porque genera sombras duras y colores menos delicados.</p>
+          </article>
+
+          <article class="light-card">
+            <h3>2. Crea escenas simples</h3>
+            <p>Un libro, una taza, una flor seca o una tela neutra son suficientes. No recargues la foto.</p>
+          </article>
+
+          <article class="light-card">
+            <h3>3. Repite elementos visuales</h3>
+            <p>Si siempre usas ciertos tonos, cintas o fondos, tu marca se vuelve reconocible y ordenada.</p>
+          </article>
+
+          <article class="light-card">
+            <h3>4. Piensa en colecciones</h3>
+            <p>Es más atractivo mostrar 3 velas relacionadas entre sí que muchas piezas sin conexión visual.</p>
+          </article>
+        </div>
+
+        <div class="inspo-note fade-up" style="margin-top:1rem;">
+          <h3 style="margin-bottom:0.45rem;">Consejo Velspace</h3>
+          <p>
+            Antes de lanzar una colección, haz un pequeño tablero de inspiración con 6 a 9 fotos. Si todas se ven bien juntas, probablemente tu marca ya está empezando a hablar con una voz visual propia.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head fade-up">
+          <div>
+            <h2>Preguntas frecuentes del módulo 7</h2>
+            <p>Pequeñas dudas visuales que pueden hacer una gran diferencia en tu marca.</p>
+          </div>
+          <button class="btn-complete" type="button" data-complete-target="faq">Marcar sección como completada</button>
+        </div>
+
+        <div class="faq-grid fade-up">
+          <article class="faq-item">
+            <strong>¿Tengo que copiar exactamente estas referencias?</strong>
+            <p>No. La idea es inspirarte, no copiar. Toma la sensación general y adáptala a tu propia esencia.</p>
+          </article>
+
+          <article class="faq-item">
+            <strong>¿Qué hago si mi casa no se ve “instagrameable”?</strong>
+            <p>Usa un rincón pequeño, una mesa limpia y una tela bonita. No necesitas una casa perfecta, solo un encuadre cuidado.</p>
+          </article>
+
+          <article class="faq-item">
+            <strong>¿Conviene usar logo en todas las fotos?</strong>
+            <p>No siempre. A veces basta con mantener colores, estilo y empaque coherente para que se sienta tu marca.</p>
+          </article>
+
+          <article class="faq-item">
+            <strong>¿Cuántas fotos debería tener antes de vender?</strong>
+            <p>Con 8 a 12 fotos bien hechas ya puedes comenzar a mostrar tu catálogo con mucha más seguridad.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p><strong>Velspace</strong> · Módulo 7: Galería de Inspiración y Branding Visual.</p>
+        <p>Archivo listo para guardar como <strong>modulo-7.html</strong> y subir a tu repositorio.</p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (() => {
+      const progressBar = document.getElementById('progressBar');
+      const updateProgress = () => {
+        const scrollTop = window.scrollY;
+        const height = document.documentElement.scrollHeight - window.innerHeight;
+        const percent = height > 0 ? (scrollTop / height) * 100 : 0;
+        progressBar.style.width = percent + '%';
+      };
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress);
+      updateProgress();
+    })();
+
+    (() => {
+      const root = document.documentElement;
+      const themeToggle = document.getElementById('themeToggle');
+      let currentTheme = 'light';
+
+      themeToggle.addEventListener('click', () => {
+        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', currentTheme);
+      });
+    })();
+
+    (() => {
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileNav = document.getElementById('mobileNav');
+      if (!menuToggle) return;
+      menuToggle.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+      });
+    })();
+
+    (() => {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const src = item.getAttribute('data-lightbox');
+          const img = item.querySelector('img');
+          lightboxImg.src = src;
+          lightboxImg.alt = img ? img.alt : '';
+          lightbox.classList.add('open');
+        });
+      });
+
+      lightboxClose.addEventListener('click', () => {
+        lightbox.classList.remove('open');
+      });
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('open');
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          lightbox.classList.remove('open');
+        }
+      });
+    })();
+
+    (() => {
+      const btn = document.getElementById('copyPaletteBtn');
+      const status = document.getElementById('copyPaletteStatus');
+      const paletteText = [
+        'Paleta sugerida Velspace:',
+        'Crema suave: #F6EEE7',
+        'Beige cálido: #E7D6C6',
+        'Terracota elegante: #C88861',
+        'Dorado suave: #D6B06E'
+      ].join('\n');
+
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(paletteText);
+          status.textContent = 'Paleta copiada correctamente.';
+        } catch {
+          status.textContent = 'No se pudo copiar automáticamente.';
+        }
+      });
+    })();
+
+    (() => {
+      document.querySelectorAll('[data-complete-target]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const completed = btn.dataset.completed === 'true';
+          btn.dataset.completed = completed ? 'false' : 'true';
+          btn.textContent = completed ? 'Marcar sección como completada' : 'Sección completada';
+        });
+      });
+
+      const markModuleBtn = document.getElementById('markModuleBtn');
+      markModuleBtn.addEventListener('click', () => {
+        markModuleBtn.textContent = markModuleBtn.textContent.includes('completado')
+          ? 'Marcar módulo como completado'
+          : 'Módulo completado';
+      });
+    })();
+
+    (() => {
+      const els = document.querySelectorAll('.fade-up');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+
+      els.forEach(el => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>
