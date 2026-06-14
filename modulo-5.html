@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <title>Velspace | Fabricación de Velas Artesanales: Del Hobby al Negocio Rentable</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Curso/ebook interactivo de Velspace sobre fabricación de velas artesanales: desde la primera vela hasta un negocio rentable desde casa.">
+  <meta name="author" content="Velspace">
+  <meta name="theme-color" content="#f5ece2">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --color-bg: #f5ece2;
+      --color-bg-soft: #f9f4ee;
+      --color-surface: #fffdf9;
+      --color-surface-alt: #f1e2d5;
+      --color-text: #3b2921;
+      --color-text-soft: #7c6153;
+      --color-text-muted: #a58571;
+      --color-primary: #c08a5c;
+      --color-primary-soft: rgba(192, 138, 92, 0.12);
+      --color-primary-strong: #a26c40;
+      --color-gold: #d8b26c;
+      --color-terracotta: #c26b5c;
+      --color-border: rgba(87, 64, 52, 0.18);
+      --color-border-soft: rgba(87, 64, 52, 0.1);
+      --color-danger: #b64949;
+
+      --radius-sm: 0.5rem;
+      --radius-md: 1rem;
+      --radius-lg: 1.5rem;
+      --radius-pill: 999px;
+
+      --shadow-sm: 0 10px 25px rgba(76, 55, 40, 0.08);
+      --shadow-md: 0 20px 55px rgba(76, 55, 40, 0.14);
+      --shadow-lg: 0 30px 80px rgba(76, 55, 40, 0.22);
+
+      --font-display: "Playfair Display", "Times New Roman", serif;
+      --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+
+      --text-xs: 0.78rem;
+      --text-sm: 0.9rem;
+      --text-base: 1rem;
+      --text-md: 1.05rem;
+      --text-lg: 1.2rem;
+      --text-xl: 1.5rem;
+      --text-2xl: 1.9rem;
+      --text-3xl: 2.4rem;
+      --text-hero: clamp(2.6rem, 7vw, 3.6rem);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #14100e;
+      --color-bg-soft: #191310;
+      --color-surface: #231815;
+      --color-surface-alt: #2b1d18;
+      --color-text: #f7eade;
+      --color-text-soft: #e0c9b7;
+      --color-text-muted: #c6a691;
+      --color-primary: #e0b485;
+      --color-primary-soft: rgba(224, 180, 133, 0.18);
+      --color-primary-strong: #f0c493;
+      --color-gold: #ebc989;
+      --color-terracotta: #e58b79;
+      --color-border: rgba(255, 241, 225, 0.22);
+      --color-border-soft: rgba(255, 241, 225, 0.12);
+      --color-danger: #ff8484;
+
+      --shadow-sm: 0 10px 25px rgba(2, 0, 0, 0.5);
+      --shadow-md: 0 20px 55px rgba(2, 0, 0, 0.7);
+      --shadow-lg: 0 30px 80px rgba(2, 0, 0, 0.8);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background:
+        radial-gradient(circle at top right, rgba(216, 178, 108, 0.18), transparent 50%),
+        radial-gradient(circle at bottom left, rgba(194, 107, 92, 0.18), transparent 55%),
+        var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 4px;
+      border-radius: 0.25rem;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--color-primary);
+      color: var(--color-surface);
+      border-radius: var(--radius-pill);
+      z-index: 999;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    .page {
+      width: min(1120px, 100% - 2.5rem);
+      margin-inline: auto;
+    }
+
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--color-bg) 86%, transparent);
+      border-bottom: 1px solid var(--color-border-soft);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: 0.75rem;
+      gap: var(--space-3);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 40%;
+      background: radial-gradient(circle at 30% 10%, #fffdf9, var(--color-primary-soft));
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-border-soft);
+    }
+
+    .brand-mark svg {
+      color: var(--color-primary-strong);
+    }
+
+    .brand-text {
+      display: grid;
+      gap: 0.1rem;
+    }
+
+    .brand-text span {
+      font-size: var(--text-xs);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    .brand-text strong {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .btn-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-border-soft);
+      background: var(--color-surface);
+      display: grid;
+      place-items: center;
+      color: var(--color-text-soft);
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.18s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-icon:hover {
+      box-shadow: var(--shadow-sm);
+      border-color: var(--color-primary-soft);
+    }
+
+    .btn-icon:active {
+      transform: scale(0.96);
+    }
+
+    .primary-nav {
+      display: none;
+    }
+
+    @media (min-width: 900px) {
+      .primary-nav {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+        font-size: var(--text-sm);
+      }
+
+      .primary-nav a {
+        position: relative;
+        padding-block: 0.35rem;
+        color: var(--color-text-soft);
+      }
+
+      .primary-nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -0.1rem;
+        width: 0;
+        height: 1.5px;
+        background: linear-gradient(90deg, var(--color-primary), var(--color-gold));
+        transition: width 0.25s ease;
+      }
+
+      .primary-nav a:hover::after {
+        width: 100%;
+      }
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      gap: var(--space-1);
+      padding: var(--space-3) 0 var(--space-4);
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      padding: 0.6rem 0.9rem;
+      border-radius: var(--radius-pill);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-soft);
+      font-size: var(--text-sm);
+      color: var(--color-text-soft);
+    }
+
+    @media (min-width: 900px) {
+      .mobile-nav {
+        display: none !important;
+      }
+    }
+
+    .progress-bar-wrapper {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: transparent;
+      z-index: 40;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--color-terracotta), var(--color-gold));
+      transition: width 0.08s linear;
+    }
+
+    .hero {
+      padding-block: var(--space-8) var(--space-10);
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    @media (min-width: 880px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.9fr);
+        align-items: center;
+      }
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: var(--radius-pill);
+      background: var(--color-primary-soft);
+      color: var(--color-primary-strong);
+      font-size: var(--text-xs);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: var(--space-3);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: var(--text-hero);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: var(--space-3);
+    }
+
+    .hero-subtitle {
+      font-size: var(--text-md);
+      color: var(--color-text-soft);
+      max-width: 36rem;
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-highlight {
+      font-weight: 600;
+      color: var(--color-terracotta);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .btn-primary {
+      border-radius: var(--radius-pill);
+      padding: 0.9rem 1.6rem;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(120deg, var(--color-terracotta), var(--color-gold));
+      color: #fffdf9;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.04);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-primary:active {
+      transform: translateY(1px) scale(0.98);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-ghost {
+      border-radius: var(--radius-pill);
+      padding: 0.85rem 1.4rem;
+      border: 1px solid var(--color-border-soft);
+      background: rgba(255, 253, 249, 0.4);
+      cursor: pointer;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3);
+      max-width: 24rem;
+    }
+
+    .hero-meta-item {
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-soft);
+      background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+      font-size: var(--text-xs);
+      color: var(--color-text-soft);
+    }
+
+    .hero-meta-item strong {
+      display: block;
+      font-size: var(--text-base);
+      color: var(--color-text);
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(160deg, var(--color-surface), var(--color-bg-soft));
+      border: 1px solid var(--color-border-soft);
+      box-shadow: var(--shadow-md);
+      padding: var(--space-4);
+      display: grid;
+      gap: var(--space-4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-border-soft);
+    }
+
+    .hero-image img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    main {
+      padding-bottom: var(--space-12);
+    }
+
+    section {
+      padding-block: var(--space-8);
+      border-top: 1px solid var(--color-border-soft);
+    }
+
+    section:first-of-type {
+      border-top: none;
+    }
+
+    .section-header {
+      margin-bottom: var(--space-4);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .section-heading {
+      max-width: 32rem;
+    }
+
+    .section-eyebrow {
+      font-size: var(--text-xs);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-subtitle {
+      color: var(--color-text-soft);
+      font-size: var(--text-sm);
+      max-width: 30rem;
+    }
+
+    .btn-complete {
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-border-soft);
+      background: var(--color-surface);
+      padding: 0.5rem 0.9rem;
+      font-size: var(--text-xs);
+      color: var(--color-text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      cursor: pointer;
+    }
+
+    .btn-complete[data-completed="true"] {
+      background: var(--color-primary-soft);
+      border-color: var(--color-primary);
+      color: var(--color-primary-strong);
+    }
+
+    .btn-complete-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid currentColor;
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    @media (min-width: 800px) {
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-soft);
+      background: var(--color-surface);
+      padding: var(--space-4);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card h3 {
+      font-size: var(--text-lg);
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+    }
+
+    .card p {
+      font-size: var(--text-sm);
+      color: var(--color-text-soft);
+    }
+
+    .materials-list {
+      margin-top: var(--space-3);
+      display: grid;
+      gap: 0.5rem;
+      font-size: var(--text-sm);
+      list-style: none;
+    }
+
+    .materials-list li {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .materials-list li span {
+      color: var(--color-text-soft);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: var(--radius-pill);
+      font-size: var(--text-xs);
+      background: var(--color-primary-soft);
+      color: var(--color-primary-strong);
+    }
+
+    .copy-materials-btn,
+    .btn-calc {
+      margin-top: var(--space-3);
+      border-radius: var(--radius-pill);
+      border: none;
+      background: var(--color-primary-soft);
+      color: var(--color-primary-strong);
+      padding: 0.55rem 1rem;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .checklist {
+      margin-top: var(--space-3);
+      padding: var(--space-3);
+      border-radius: var(--radius-md);
+      border: 1px dashed var(--color-border);
+      background: color-mix(in srgb, var(--color-bg-soft) 86%, transparent);
+      font-size: var(--text-sm);
+    }
+
+    .checklist-items {
+      list-style: none;
+      margin-top: 0.4rem;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .checklist-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--color-primary);
+      cursor: pointer;
+    }
+
+    .accordion {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-soft);
+      background: var(--color-surface);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .accordion-item + .accordion-item {
+      border-top: 1px solid var(--color-border-soft);
+    }
+
+    .accordion-header {
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      cursor: pointer;
+    }
+
+    .accordion-title {
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+
+    .accordion-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border-soft);
+      display: grid;
+      place-items: center;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      flex-shrink: 0;
+    }
+
+    .accordion-content {
+      height: 0;
+      overflow: hidden;
+      transition: height 0.26s ease;
+    }
+
+    .accordion-body {
+      padding: 0 1.25rem 1.25rem;
+      font-size: var(--text-sm);
+      color: var(--color-text-soft);
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .accordion-body ul {
+      list-style: disc;
+      padding-left: 1.1rem;
+    }
+
+    .calculator {
+      margin-top: var(--space-3);
+      padding: var(--space-3);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-soft);
+      background: color-mix(in srgb, var(--color-surface) 90%, transparent);
+      font-size: var(--text-sm);
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .calculator-row {
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .calculator-row label {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.17em;
+      color: var(--color-text-muted);
+      font-weight: 600;
+    }
+
+    .calculator-row input {
+      border-radius: 0.75rem;
+      border: 1px solid var(--color-border-soft);
+      padding: 0.55rem 0.7rem;
+      font-size: var(--text-sm);
+      background: var(--color-surface);
+      color: var(--color-text);
+    }
+
+    .calculator-grid {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 720px) {
+      .calculator-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .calculator-summary {
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--color-border-soft);
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    @media (min-width: 720px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-border-soft);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 4 / 5;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 0.6rem 0.8rem;
+      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.6));
+      color: #fffdf9;
+      font-size: var(--text-xs);
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 3, 2, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 70;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .lightbox-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      inset: 0.75rem 0.75rem auto auto;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fffdf9;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .resource-list,
+    .faq-list {
+      display: grid;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+    }
+
+    .resource-item,
+    .faq-item {
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-soft);
+      background: var(--color-surface);
+    }
+
+    .resource-item a {
+      color: var(--color-terracotta);
+      text-decoration: underline;
+      font-size: var(--text-xs);
+    }
+
+    footer {
+      border-top: 1px solid var(--color-border-soft);
+      background: color-mix(in srgb, var(--color-bg-soft) 88%, transparent);
+      padding-block: var(--space-6);
+      margin-top: var(--space-6);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+
+    @media (min-width: 720px) {
+      .footer-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
+
+  <div class="progress-bar-wrapper" aria-hidden="true">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="page header-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2c2.5 2.8 4.5 5.4 4.5 8.5A4.5 4.5 0 1 1 7.5 10.5C7.5 7.4 9.5 4.8 12 2Z"></path>
+            <path d="M7 21h10"></path>
+            <path d="M9.5 17.5h5"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span>Velspace · Curso online</span>
+          <strong>Fabricación de Velas Artesanales</strong>
+        </div>
+      </div>
+
+      <nav class="primary-nav" aria-label="Navegación principal">
+        <a href="#inicio" data-scroll>Inicio</a>
+        <a href="#materiales" data-scroll>Materiales</a>
+        <a href="#seguridad" data-scroll>Seguridad</a>
+        <a href="#guias" data-scroll>Guías paso a paso</a>
+        <a href="#negocio" data-scroll>Módulo 4</a>
+        <a href="#marketing" data-scroll>Marketing</a>
+        <a href="#galeria" data-scroll>Galería</a>
+        <a href="#contacto" data-scroll>Contacto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-icon" id="themeToggle" type="button" aria-label="Cambiar a modo oscuro">☾</button>
+        <button class="btn-icon" id="menuToggle" type="button" aria-label="Abrir navegación secundaria">☰</button>
+      </div>
+    </div>
+
+    <nav class="page mobile-nav" id="mobileNav" aria-label="Navegación móvil">
+      <a href="#inicio" data-scroll>Inicio / Bienvenida</a>
+      <a href="#materiales" data-scroll>Materiales e insumos</a>
+      <a href="#seguridad" data-scroll>Seguridad y espacio</a>
+      <a href="#guias" data-scroll>Guías paso a paso</a>
+      <a href="#tips" data-scroll>Tips y errores comunes</a>
+      <a href="#negocio" data-scroll>Módulo 4</a>
+      <a href="#marketing" data-scroll>Marketing y redes</a>
+      <a href="#galeria" data-scroll>Galería</a>
+      <a href="#recursos" data-scroll>Recursos útiles</a>
+      <a href="#faq" data-scroll>Preguntas frecuentes</a>
+      <a href="#contacto" data-scroll>Contacto Velspace</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page hero" id="inicio">
+      <div class="hero-grid">
+        <div class="fade-up">
+          <div class="hero-tag">Velspace · Curso online 2026</div>
+          <h1 class="hero-title">Fabricación de Velas Artesanales: <span class="hero-highlight">Del Hobby al Negocio Rentable</span></h1>
+          <p class="hero-subtitle">
+            Hola, soy <strong>Velspace</strong>, y este ebook interactivo está pensado para ti: una mujer que quiere emprender desde casa,
+            a tu ritmo, con un oficio hermoso que llena de calma tu hogar y tu cuenta bancaria.
+          </p>
+          <div class="hero-cta">
+            <button class="btn-primary" type="button" data-scroll="#guias">Comenzar Mi Primera Vela</button>
+            <button class="btn-ghost" type="button" data-scroll="#negocio">Ver Módulo 4</button>
+          </div>
+          <div class="hero-meta">
+            <div class="hero-meta-item"><strong>Enfoque paso a paso</strong>Ideal para comenzar hoy mismo aunque nunca hayas tocado una cera.</div>
+            <div class="hero-meta-item"><strong>De hobby a ingreso</strong>Aprenderás a calcular costos, precios y cómo vender.</div>
+            <div class="hero-meta-item"><strong>Materiales reales</strong>Te explico ceras, mechas, fragancias y herramientas.</div>
+            <div class="hero-meta-item"><strong>Marca Velspace</strong>Todo el contenido está creado por Velspace para 2026.</div>
+          </div>
+        </div>
+
+        <aside class="fade-up">
+          <div class="hero-card">
+            <div class="hero-image">
+              <img
+                src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/58f5659eb8a64e2bac3a98ad28bbf83e8a71f563.jpg"
+                alt="Vela de aspecto lujoso color crema sobre fondo beige con caja elegante, estilo Velspace"
+                loading="lazy"
+                width="800"
+                height="801"
+              >
+            </div>
+            <p style="font-size: var(--text-sm); color: var(--color-text-soft);">
+              Imagina una colección de velas como esta, con tu nombre, desde la mesa de tu cocina. En este curso Velspace te guío desde la
+              <strong>primera vela</strong> hasta tus <strong>primeras ventas</strong>.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="materiales">
+      <div class="page">
+        <header class="section-header">
+          <div class="section-heading">
+            <div class="section-eyebrow">Módulo 1 · Materiales e Insumos</div>
+            <h2 class="section-title">Todo lo que necesitas, sin complicarte</h2>
+            <p class="section-subtitle">Qué comprar, para qué sirve y qué alternativa elegir si estás empezando.</p>
+          </div>
+          <button class="btn-complete" type="button" data-complete-target="materiales">
+            <span class="btn-complete-icon">✓</span>
+            <span>Marcar sección como completada</span>
+          </button>
+        </header>
+
+        <div class="grid grid-2 fade-up">
+          <article class="card">
+            <h3>Tipos de cera más usados</h3>
+            <ul class="materials-list">
+              <li><strong>1.</strong><span><b>Cera de soja:</b> vegetal, limpia y perfecta para velas aromáticas en recipiente.</span></li>
+              <li><strong>2.</strong><span><b>Cera de coco:</b> cremosa y con excelente fijación de aroma.</span></li>
+              <li><strong>3.</strong><span><b>Cera de abeja:</b> aroma suave a miel y aspecto dorado precioso.</span></li>
+              <li><strong>4.</strong><span><b>Parafina:</b> económica y fácil de trabajar.</span></li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Mechas, fragancias y herramientas</h3>
+            <ul class="materials-list">
+              <li><strong>•</strong><span>Mechas de algodón preenceradas.</span></li>
+              <li><strong>•</strong><span>Fragancias específicas para velas.</span></li>
+              <li><strong>•</strong><span>Colorantes suaves y elegantes.</span></li>
+              <li><strong>•</strong><span>Vasos de vidrio, cerámica o latas metálicas.</span></li>
+              <li><strong>•</strong><span>Báscula digital, termómetro y jarra fundidora.</span></li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="grid grid-2 fade-up" style="margin-top: var(--space-4);">
+          <article class="card">
+            <div class="badge">Lista Velspace</div>
+            <h3 style="margin-top: 0.4rem;">Lista básica de materiales</h3>
+            <ul class="materials-list">
+              <li><strong>•</strong><span>500 g de cera de soja en escamas.</span></li>
+              <li><strong>•</strong><span>Mechas de algodón para frascos de 7–8 cm.</span></li>
+              <li><strong>•</strong><span>1 fragancia para velas.</span></li>
+              <li><strong>•</strong><span>Colorante opcional.</span></li>
+              <li><strong>•</strong><span>2–3 frascos resistentes al calor.</span></li>
+              <li><strong>•</strong><span>Báscula digital y termómetro.</span></li>
+              <li><strong>•</strong><span>Jarra para baño maría.</span></li>
+              <li><strong>•</strong><span>Palitos para centrar mechas.</span></li>
+            </ul>
+            <button class="copy-materials-btn" type="button" id="copyMaterialsBtn">Copiar lista de materiales</button>
+            <p id="copyFeedback" style="font-size: var(--text-xs); color: var(--color-text-muted); margin-top: 0.4rem;"></p>
+          </article>
+
+          <article class="card">
+            <h3>Checklist inicial</h3>
+            <div class="checklist">
+              <ul class="checklist-items">
+                <li class="checklist-item"><input type="checkbox"><label>Báscula digital.</label></li>
+                <li class="checklist-item"><input type="checkbox"><label>Termómetro.</label></li>
+                <li class="checklist-item"><input type="checkbox"><label>Cera suficiente.</label></li>
+                <li class="checklist-item"><input type="checkbox"><label>Mechas de algodón.</label></li>
+                <li class="checklist-item"><input type="checkbox"><label>Fragancia apta para velas.</label></li>
+                <li class="checklist-item"><input type="checkbox"><label>Envases o moldes limpios.</label></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="seguridad">
+      <div class="page">
+        <header class="section-header">
+          <div class="section-heading">
+            <div class="section-eyebrow">Módulo 2 · Seguridad</div>
+            <h2 class="section-title">Un rincón seguro para crear</h2>
+            <p class="section-subtitle">Prepara tu espacio con calma y evita accidentes.</p>
+          </div>
+        </header>
+
+        <div class="grid grid-2 fade-up">
+          <article class="card">
+            <h3>Preparar el espacio</h3>
+            <ul class="materials-list">
+              <li><strong>•</strong><span>Cubre la mesa y ten papel absorbente a mano.</span></li>
+              <li><strong>•</strong><span>Mantén a niños y mascotas lejos del área.</span></li>
+              <li><strong>•</strong><span>Trabaja con buena ventilación.</span></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Normas básicas</h3>
+            <ul class="materials-list">
+              <li><strong>•</strong><span>Nunca calientes la cera directo al fuego.</span></li>
+              <li><strong>•</strong><span>No dejes la cera sola mientras se derrite.</span></li>
+              <li><strong>•</strong><span>Usa recipientes resistentes al calor.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="guias">
+      <div class="page">
+        <header class="section-header">
+          <div class="section-heading">
+            <div class="section-eyebrow">Módulo 3 · Guías paso a paso</div>
+            <h2 class="section-title">Tu primera vela</h2>
+            <p class="section-subtitle">Abre cada paso y sigue el proceso con tranquilidad.</p>
+          </div>
+        </header>
+
+        <div class="accordion fade-up">
+          <div class="accordion-item open">
+            <div class="accordion-header" data-accordion>
+              <div class="accordion-title">Paso 1: Preparar frascos y mechas</div>
+              <div class="accordion-icon">›</div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>Limpia los frascos, seca bien y pega la mecha al centro.</p>
+                <ul>
+                  <li>Usa un soporte para mantener recta la mecha.</li>
+                  <li>Revisa que todo esté firme antes de verter.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" data-accordion>
+              <div class="accordion-title">Paso 2: Fundir la cera</div>
+              <div class="accordion-icon">›</div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>Funde la cera a baño maría y controla temperatura con termómetro.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" data-accordion>
+              <div class="accordion-title">Paso 3: Añadir fragancia</div>
+              <div class="accordion-icon">›</div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>Añade la fragancia cuando la cera baje un poco de temperatura y mezcla bien.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" data-accordion>
+              <div class="accordion-title">Paso 4: Verter y curar</div>
+              <div class="accordion-icon">›</div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>Vierte lentamente, deja enfriar sin mover y cura varios días para mejor aroma.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tips">
+      <div class="page">
+        <header class="section-header">
+          <div class="section-heading">
+            <div class="section-eyebrow">Tips y errores comunes</div>
+            <h2 class="section-title">Pequeños ajustes, grandes resultados</h2>
+          </div>
+        </header>
+
+        <div class="grid grid-2 fade-up">
+          <article class="card">
+            <h3>Errores frecuentes</h3>
+            <ul class="materials-list">
+              <li><strong>•</strong><span>Verter la cera demasiado caliente.</span></li>
+              <li><strong>•</strong><span>No pesar la fragancia.</span></li>
+              <li><strong>•</strong><span>Usar mecha incorrecta para el envase.</span></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Tips Velspace</h3>
+            <ul class="materials-list">
+              <li><strong>•</strong><span>Anota cada prueba y resultado.</span></li>
+              <li><strong>•</strong><span>Haz tandas pequeñas al comenzar.</span></li>
+              <li><strong>•</strong><span>Deja curar la vela antes de juzgar el aroma.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="negocio">
+      <div class="page">
+        <header class="section-header">
+          <div class="section-heading">
+            <div class="section-eyebrow">Módulo 4 · Negocio rentable</div>
+            <h2 class="section-title">Calculadora Velspace</h2>
+            <p class="section-subtitle">Aquí ya queda corregido como Módulo 4.</p>
+          </div>
+          <button class="btn-complete" type="button" data-complete-target="negocio">
+            <span class="btn-complete-icon">✓</span>
+            <span>Marcar sección como completada</span>
+          </button>
+        </header>
+
+        <div class="grid grid-2 fade-up">
+          <article class="card">
+            <h3>Cómo pensar tus costos</h3>
+            <ul class="materials-list">
+              <li><strong>1.</strong><span>Materiales.</span></li>
+              <li><strong>2.</strong><span>Empaque.</span></li>
+              <li><strong>3.</strong><span>Tu tiempo.</span></li>
+              <li><strong>4.</strong><span>Margen de ganancia.</span></li>
+            </ul>
+          </article>
+
+          <article class="calculator">
+            <div class="calculator-grid">
+              <div class="calculator-row">
+                <label for="costoMateriales">Costo de materiales</label>
+                <input type="number" id="costoMateriales" placeholder="Ej: 3.5" step="0.01" min="0">
+              </div>
+              <div class="calculator-row">
+                <label for="costoEmpaque">Costo de empaque</label>
+                <input type="number" id="costoEmpaque" placeholder="Ej: 1.0" step="0.01" min="0">
+              </div>
+              <div class="calculator-row">
+                <label for="costoTiempo">Valor de tu tiempo</label>
+                <input type="number" id="costoTiempo" placeholder="Ej: 1.5" step="0.01" min="0">
+              </div>
+              <div class="calculator-row">
+                <label for="margen">Margen (%)</label>
+                <input type="number" id="margen" placeholder="Ej: 80" step="1" min="0">
+              </div>
+            </div>
+            <button class="btn-calc" type="button" id="calcBtn">Calcular precio sugerido</button>
+            <div class="calculator-summary" id="calcSummary">
+              <p>Introduce tus datos y te mostraré un precio sugerido.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="marketing">
+      <div class="page">
+        <header class="section-header">
+          <div class="section-heading">
+            <div class="section-eyebrow">Marketing y redes</div>
+            <h2 class="section-title">Instagram, TikTok y Facebook</h2>
+          </div>
+        </header>
+
+        <div class="grid grid-2 fade-up">
+          <article class="card">
+            <h3>Estrategia sencilla</h3>
+            <ul class="materials-list">
+              <li><strong>1.</strong><span>Instagram para mostrar estética y Reels.</span></li>
+              <li><strong>2.</strong><span>TikTok para proceso y tips rápidos.</span></li>
+              <li><strong>3.</strong><span>Facebook para llegar a clientas locales.</span></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Ideas de contenido</h3>
+            <ul class="materials-list">
+              <li><strong>•</strong><span>Fotos bonitas de tus velas.</span></li>
+              <li><strong>•</strong><span>Videos del proceso de vertido.</span></li>
+              <li><strong>•</strong><span>Testimonios y promociones semanales.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="page">
+        <header class="section-header">
+          <div class="section-heading">
+            <div class="section-eyebrow">Galería de inspiración</div>
+            <h2 class="section-title">Visualiza tu propia marca</h2>
+          </div>
+        </header>
+
+        <div class="gallery-grid fade-up">
+          <figure class="gallery-item" data-lightbox="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/58f5659eb8a64e2bac3a98ad28bbf83e8a71f563.jpg">
+            <img src="https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512_smart/pplx_search_images/58f5659eb8a64e2bac3a98ad28bbf83e8a71f563.jpg" alt="Vela lujosa estilo Velspace">
+            <figcaption class="gallery-caption">Colección minimalista.</figcaption>
+          </figure>
+          <figure class="gallery-item" data-lightbox="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/06b5a237384ff4d2b32a35c85aa9cdad4959600a.jpg">
+            <img src="https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512_smart/pplx_search_images/06b5a237384ff4d2b32a35c85aa9cdad4959600a.jpg" alt="Mujer preparando velas">
+            <figcaption class="gallery-caption">Rincón de trabajo acogedor.</figcaption>
+          </figure>
+          <figure class="gallery-item" data-lightbox="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6d705e4496403fd7e2b63e8e18a0bfa72940609d.jpg">
+            <img src="https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512_smart/pplx_search_images/6d705e4496403fd7e2b63e8e18a0bfa72940609d.jpg" alt="Vela con packaging elegante">
+            <figcaption class="gallery-caption">Packaging premium.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="lightbox" id="lightbox" aria-modal="true" role="dialog">
+        <div class="lightbox-inner">
+          <img src="" alt="" id="lightboxImg">
+          <button class="lightbox-close" type="button" id="lightboxClose" aria-label="Cerrar imagen">✕</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos">
+      <div class="page">
+        <header class="section-header">
+          <div class="section-heading">
+            <div class="section-eyebrow">Recursos Velspace</div>
+            <h2 class="section-title">Enlaces útiles</h2>
+          </div>
+        </header>
+
+        <div class="grid grid-2 fade-up">
+          <article class="card">
+            <h3>Tutorial recomendado</h3>
+            <div class="resource-list">
+              <div class="resource-item">
+                <p>Video con explicación de insumos básicos y proveedores.</p>
+                <a href="https://www.youtube.com/watch?v=y7s-F8GVpB0" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Proveedores para investigar</h3>
+            <div class="resource-list">
+              <div class="resource-item">
+                <p>México · Candle Solutions</p>
+                <a href="https://candlesolutions.com.mx/proveedor-insumos-para-velas-mayoreo/" target="_blank" rel="noopener noreferrer">Visitar web</a>
+              </div>
+              <div class="resource-item">
+                <p>Listado internacional</p>
+                <a href="https://es.scribd.com/document/853937475/proveedores-insumos-de-velas" target="_blank" rel="noopener noreferrer">Ver listado</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="page">
+        <header class="section-header">
+          <div class="section-heading">
+            <div class="section-eyebrow">Preguntas frecuentes</div>
+            <h2 class="section-title">Dudas comunes</h2>
+          </div>
+        </header>
+
+        <div class="faq-list fade-up">
+          <div class="faq-item">
+            <strong>¿Necesito mucha inversión inicial?</strong>
+            <p>No, puedes empezar con una inversión pequeña y escalar poco a poco.</p>
+          </div>
+          <div class="faq-item">
+            <strong>¿Puedo hacerlo a mi ritmo?</strong>
+            <p>Sí. Las velas permiten organizar producción en bloques de tiempo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="page">
+        <header class="section-header">
+          <div class="section-heading">
+            <div class="section-eyebrow">Contacto y soporte Velspace</div>
+            <h2 class="section-title">Seguimos contigo</h2>
+          </div>
+        </header>
+
+        <div class="grid grid-2 fade-up">
+          <article class="card">
+            <h3>Contacto modelo</h3>
+            <ul class="materials-list">
+              <li><strong>Email:</strong><span>hola@velspace.studio</span></li>
+              <li><strong>Instagram:</strong><span>@velspace_candles</span></li>
+              <li><strong>TikTok:</strong><span>@velspace_candles</span></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Nota final</h3>
+            <p>Este archivo está listo para copiar, pegar y guardar como <strong>modulo-4.html</strong>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="page footer-inner">
+      <div>
+        <strong>Velspace · Fabricación de Velas Artesanales</strong>
+        <p>Curso/ebook interactivo listo para GitHub Pages.</p>
+      </div>
+      <div>
+        <p>© 2026 Velspace.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const themeToggle = document.getElementById("themeToggle");
+      let currentTheme = root.getAttribute("data-theme") || "light";
+
+      function updateThemeIcon() {
+        themeToggle.textContent = currentTheme === "dark" ? "☀" : "☾";
+      }
+
+      function setTheme(theme) {
+        currentTheme = theme;
+        root.setAttribute("data-theme", theme);
+        updateThemeIcon();
+      }
+
+      themeToggle.addEventListener("click", () => {
+        setTheme(currentTheme === "dark" ? "light" : "dark");
+      });
+
+      updateThemeIcon();
+    })();
+
+    (function () {
+      const links = document.querySelectorAll("[data-scroll]");
+      links.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetSelector = link.getAttribute("data-scroll") || link.getAttribute("href");
+          const el = document.querySelector(targetSelector);
+          if (!el) return;
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+          const mobileNav = document.getElementById("mobileNav");
+          mobileNav.classList.remove("open");
+        });
+      });
+    })();
+
+    (function () {
+      const bar = document.getElementById("progressBar");
+      function updateProgress() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        bar.style.width = progress + "%";
+      }
+      window.addEventListener("scroll", updateProgress, { passive: true });
+      window.addEventListener("resize", updateProgress);
+      updateProgress();
+    })();
+
+    (function () {
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileNav = document.getElementById("mobileNav");
+      menuToggle.addEventListener("click", () => {
+        mobileNav.classList.toggle("open");
+      });
+    })();
+
+    (function () {
+      const items = document.querySelectorAll(".accordion-item");
+      items.forEach((item) => {
+        const header = item.querySelector("[data-accordion]");
+        const content = item.querySelector(".accordion-content");
+        const body = item.querySelector(".accordion-body");
+        if (item.classList.contains("open")) {
+          content.style.height = body.offsetHeight + "px";
+        }
+        header.addEventListener("click", () => {
+          const isOpen = item.classList.contains("open");
+          items.forEach((other) => {
+            const otherContent = other.querySelector(".accordion-content");
+            other.classList.remove("open");
+            if (otherContent) otherContent.style.height = 0;
+          });
+          if (!isOpen) {
+            item.classList.add("open");
+            content.style.height = body.offsetHeight + "px";
+          }
+        });
+      });
+    })();
+
+    (function () {
+      const btn = document.getElementById("copyMaterialsBtn");
+      const feedback = document.getElementById("copyFeedback");
+      if (!btn) return;
+      const text = [
+        "500 g de cera de soja en escamas",
+        "Mechas de algodón para frascos de 7–8 cm",
+        "1 fragancia para velas",
+        "Colorante opcional",
+        "2–3 frascos resistentes al calor",
+        "Báscula digital y termómetro",
+        "Jarra para baño maría",
+        "Palitos para centrar mechas"
+      ].join("\\n");
+
+      btn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(text);
+          feedback.textContent = "Lista copiada correctamente.";
+        } catch (e) {
+          feedback.textContent = "No se pudo copiar automáticamente.";
+        }
+      });
+    })();
+
+    (function () {
+      const btn = document.getElementById("calcBtn");
+      const summary = document.getElementById("calcSummary");
+      btn.addEventListener("click", () => {
+        const materiales = parseFloat(document.getElementById("costoMateriales").value || "0");
+        const empaque = parseFloat(document.getElementById("costoEmpaque").value || "0");
+        const tiempo = parseFloat(document.getElementById("costoTiempo").value || "0");
+        const margen = parseFloat(document.getElementById("margen").value || "0");
+        const base = materiales + empaque + tiempo;
+        const finalPrice = base * (1 + margen / 100);
+        summary.innerHTML = "<p>Costo base: <strong>" + base.toFixed(2) + " USD</strong></p><p>Precio sugerido: <strong>" + finalPrice.toFixed(2) + " USD</strong></p>";
+      });
+    })();
+
+    (function () {
+      const buttons = document.querySelectorAll(".btn-complete");
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const done = btn.getAttribute("data-completed") === "true";
+          btn.setAttribute("data-completed", done ? "false" : "true");
+          btn.querySelector("span:last-child").textContent = done ? "Marcar sección como completada" : "Sección completada";
+        });
+      });
+    })();
+
+    (function () {
+      const galleryItems = document.querySelectorAll(".gallery-item");
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImg");
+      const lightboxClose = document.getElementById("lightboxClose");
+
+      galleryItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          const src = item.getAttribute("data-lightbox");
+          const img = item.querySelector("img");
+          lightboxImg.src = src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.add("open");
+        });
+      });
+
+      lightboxClose.addEventListener("click", () => {
+        lightbox.classList.remove("open");
+      });
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove("open");
+        }
+      });
+    })();
+
+    (function () {
+      const observed = document.querySelectorAll(".fade-up");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.18 });
+
+      observed.forEach((el) => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>
