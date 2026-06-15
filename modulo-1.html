@@ -614,3 +614,29 @@
   </main>
 </body>
 </html>
+    <!-- Navegación entre módulos Velspace -->
+    <section class="module-nav-section" aria-label="Navegación entre módulos">
+      <div class="module-nav-grid">
+        <a href="index.html" class="module-nav-btn module-nav-index" aria-label="Volver a la página principal">
+          <span class="module-nav-icon">🏠</span>
+          <span class="module-nav-label">Inicio</span>
+        </a>
+        <a href="modulo-2.html" class="module-nav-btn module-nav-next" aria-label="Ir al siguiente módulo">
+          <span class="module-nav-label">Siguiente</span>
+          <span class="module-nav-icon">⮕</span>
+        </a>
+      </div>
+      <p class="module-nav-text">Módulo 1 · Materiales e insumos necesarios para velas de soya artesanales.</p>
+    </section>
+
+    <style>
+    .module-nav-section { padding: 2rem 0; }
+    .module-nav-grid { display: flex; gap: 1rem; margin-bottom: 0.75rem; }
+    .module-nav-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.3rem; border-radius: 999px; border: 1px solid rgba(217, 177, 110, 0.2); background: #fffdfa; color: #705d50; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: all 0.2s ease; box-shadow: 0 4px 16px rgba(58, 37, 25, 0.08); }
+    .module-nav-btn:hover { transform: translateY(-2px); border-color: #996a46; color: #996a46; box-shadow: 0 8px 24px rgba(153, 106, 70, 0.18); }
+    .module-nav-index:hover { background: linear-gradient(135deg, #f5efe8, #fff); }
+    .module-nav-next:hover { background: linear-gradient(135deg, #fbf7f2, #fff); }
+    .module-nav-icon { font-size: 1rem; }
+    .module-nav-label { letter-spacing: 0.02em; }
+    .module-nav-text { color: #9a7f6f; font-size: 0.82rem; margin: 0; }
+    </style>
