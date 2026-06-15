@@ -374,6 +374,38 @@
         grid-template-columns: 1.05fr 0.95fr;
       }
     }
+      @media (max-width: 759px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+      .hero-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+      nav .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .module-nav {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .module-nav a {
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -413,7 +445,7 @@
 
         <aside class="hero-card">
           <img
-            src="https://images.unsplash.com/photo-1602874801006-e26c1b0c5e3b?auto=format&fit=crop&w=1200&q=80"
+            src="https://images.pexels.com/photos/5933683/pexels-photo-5933683.jpeg?auto=compress&cs=tinysrgb&w=1200"
             alt="Mesa limpia y cálida preparada para fabricar velas artesanales con estética ordenada"
             width="1200"
             height="900"
