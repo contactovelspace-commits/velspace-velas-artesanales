@@ -1,58 +1,70 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Velspace | Módulo 6: Marketing y Ventas en Redes Sociales</title>
-  <meta name="description" content="Módulo 6 de Velspace: aprende a vender tus velas artesanales en Instagram, TikTok y Facebook con una estrategia simple, elegante y rentable.">
-  <meta name="author" content="Velspace">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velspace | Módulo 06 · Marketing y Ventas en Redes Sociales</title>
+  <meta
+    name="description"
+    content="Módulo 06 de Velspace: marketing y ventas en redes sociales para vender velas artesanales con una marca cálida, elegante y rentable."
+  />
+  <meta name="theme-color" content="#f6eee4" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
     :root,
     [data-theme="light"] {
-      --bg: #f7efe7;
-      --bg-soft: #fcf7f2;
-      --surface: #fffdfa;
-      --surface-2: #f3e7da;
-      --text: #34241d;
-      --text-soft: #735f52;
-      --text-muted: #9e8373;
-      --primary: #c9875b;
-      --primary-strong: #ab6e45;
-      --primary-soft: rgba(201, 135, 91, 0.12);
-      --gold: #d9b06b;
-      --terracotta: #c76d58;
-      --border: rgba(77, 55, 43, 0.14);
-      --shadow-sm: 0 10px 24px rgba(56, 35, 24, 0.08);
-      --shadow-md: 0 24px 60px rgba(56, 35, 24, 0.14);
-      --radius-sm: 0.75rem;
-      --radius-md: 1.2rem;
-      --radius-lg: 1.8rem;
-      --radius-pill: 999px;
-      --font-display: "Playfair Display", serif;
-      --font-body: "Inter", sans-serif;
+      --bg: #f6eee4;
+      --bg-soft: #fcf8f2;
+      --surface: #fffdf9;
+      --surface-2: #efe3d4;
+      --surface-3: #e8d8c5;
+      --text: #261911;
+      --text-soft: #6f5f54;
+      --text-faint: #9a8576;
+      --primary: #b37a4b;
+      --primary-strong: #925d33;
+      --accent: #d9b482;
+      --terracotta: #bf7156;
+      --success: #4d7a57;
+      --border: rgba(38, 25, 17, 0.12);
+      --border-soft: rgba(38, 25, 17, 0.08);
+      --shadow-sm: 0 10px 28px rgba(55, 34, 20, 0.08);
+      --shadow-md: 0 22px 60px rgba(55, 34, 20, 0.14);
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 28px;
+      --radius-full: 999px;
+      --font-display: "Cormorant Garamond", Georgia, serif;
+      --font-body: "Inter", system-ui, sans-serif;
+      --max: 1120px;
+      --transition: 220ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     [data-theme="dark"] {
-      --bg: #171210;
-      --bg-soft: #1d1714;
-      --surface: #241c18;
-      --surface-2: #2d221d;
-      --text: #f7ece2;
-      --text-soft: #d9c2b2;
-      --text-muted: #b69784;
-      --primary: #ebb180;
-      --primary-strong: #f2c08f;
-      --primary-soft: rgba(235, 177, 128, 0.14);
-      --gold: #edc98a;
-      --terracotta: #f0947b;
-      --border: rgba(255, 240, 227, 0.14);
-      --shadow-sm: 0 10px 24px rgba(0, 0, 0, 0.35);
-      --shadow-md: 0 24px 60px rgba(0, 0, 0, 0.45);
+      --bg: #15110e;
+      --bg-soft: #1d1713;
+      --surface: #221a15;
+      --surface-2: #2c211a;
+      --surface-3: #372920;
+      --text: #f4e9dd;
+      --text-soft: #d1bcaa;
+      --text-faint: #a78f7b;
+      --primary: #d5a26e;
+      --primary-strong: #efc08f;
+      --accent: #e8c58f;
+      --terracotta: #db8a70;
+      --success: #7fb08b;
+      --border: rgba(244, 233, 221, 0.12);
+      --border-soft: rgba(244, 233, 221, 0.08);
+      --shadow-sm: 0 10px 28px rgba(0, 0, 0, 0.28);
+      --shadow-md: 0 22px 60px rgba(0, 0, 0, 0.42);
     }
 
     * {
@@ -68,42 +80,58 @@
     body {
       font-family: var(--font-body);
       background:
-        radial-gradient(circle at top right, rgba(217, 176, 107, 0.18), transparent 30%),
-        radial-gradient(circle at bottom left, rgba(199, 109, 88, 0.12), transparent 35%),
+        radial-gradient(circle at top right, rgba(217, 180, 130, 0.15), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(191, 113, 86, 0.12), transparent 30%),
         var(--bg);
       color: var(--text);
       line-height: 1.7;
+      min-height: 100vh;
     }
 
     img {
-      max-width: 100%;
       display: block;
+      max-width: 100%;
       height: auto;
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
-    button {
+    button,
+    input,
+    textarea {
       font: inherit;
     }
 
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+
     .container {
-      width: min(1120px, calc(100% - 2rem));
-      margin: 0 auto;
+      width: min(var(--max), calc(100% - 24px));
+      margin-inline: auto;
     }
 
     .skip-link {
       position: absolute;
       left: 1rem;
-      top: -50px;
+      top: -48px;
       background: var(--primary);
-      color: white;
-      padding: 0.75rem 1rem;
-      border-radius: var(--radius-pill);
-      z-index: 100;
+      color: #fff;
+      padding: 0.7rem 1rem;
+      border-radius: var(--radius-full);
+      z-index: 200;
+      transition: top var(--transition);
     }
 
     .skip-link:focus {
@@ -112,192 +140,192 @@
 
     .progress-wrap {
       position: fixed;
-      top: 0;
+      top: 72px;
       left: 0;
       width: 100%;
-      height: 4px;
-      z-index: 60;
-      background: transparent;
+      height: 3px;
+      z-index: 80;
     }
 
     .progress-bar {
-      height: 100%;
       width: 0;
-      background: linear-gradient(90deg, var(--terracotta), var(--gold));
+      height: 100%;
+      background: linear-gradient(90deg, var(--terracotta), var(--accent), var(--primary));
     }
 
-    .header {
+    .site-header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 90;
       backdrop-filter: blur(14px);
-      background: color-mix(in srgb, var(--bg) 84%, transparent);
-      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      border-bottom: 1px solid var(--border-soft);
     }
 
-    .header-inner {
-      min-height: 74px;
+    .nav {
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 12px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.85rem;
+      gap: 12px;
+      min-width: 0;
     }
 
-    .brand-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 40%;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--primary-soft), rgba(255,255,255,0.45));
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-      color: var(--primary-strong);
-      flex-shrink: 0;
-    }
-
-    .brand-text small {
-      display: block;
-      color: var(--text-muted);
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-size: 0.7rem;
-      margin-bottom: 0.15rem;
-    }
-
-    .brand-text strong {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      letter-spacing: 0.02em;
-    }
-
-    .nav {
-      display: none;
-      gap: 1rem;
-      font-size: 0.92rem;
-      color: var(--text-soft);
-    }
-
-    .nav a:hover {
-      color: var(--primary-strong);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .icon-btn {
+    .brand-mark {
       width: 42px;
       height: 42px;
       border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text-soft);
-      cursor: pointer;
-    }
-
-    .mobile-nav {
-      display: none;
-      padding: 0 0 1rem;
-    }
-
-    .mobile-nav.open {
       display: grid;
-      gap: 0.5rem;
+      place-items: center;
+      background: linear-gradient(135deg, var(--surface-2), var(--surface));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
     }
 
-    .mobile-nav a {
-      padding: 0.75rem 1rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-pill);
+    .brand-mark span {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-copy small {
       color: var(--text-soft);
-      font-size: 0.92rem;
+      display: block;
+      font-size: 0.76rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .theme-btn,
+    .nav-btn {
+      min-height: 44px;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      transition: transform var(--transition), border-color var(--transition), background var(--transition);
+    }
+
+    .nav-btn {
+      background: linear-gradient(180deg, var(--primary), var(--primary-strong));
+      color: #fff;
+      border: none;
+    }
+
+    .theme-btn:active,
+    .nav-btn:active,
+    .btn-primary:active,
+    .btn-secondary:active,
+    .copy-btn:active,
+    .lightbox-close:active {
+      transform: scale(0.98);
     }
 
     .hero {
-      padding: 3rem 0 2rem;
+      padding: 46px 0 26px;
     }
 
     .hero-grid {
       display: grid;
-      gap: 1.5rem;
+      gap: 20px;
       align-items: center;
     }
 
     .eyebrow {
       display: inline-flex;
-      padding: 0.35rem 0.8rem;
-      border-radius: var(--radius-pill);
-      background: var(--primary-soft);
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: var(--radius-full);
+      background: rgba(179, 122, 75, 0.12);
       color: var(--primary-strong);
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      font-weight: 800;
       text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 1rem;
+      margin-bottom: 14px;
     }
 
-    .hero h1 {
+    .hero h1,
+    .section-title {
       font-family: var(--font-display);
-      font-size: clamp(2.4rem, 6vw, 4.2rem);
-      line-height: 1.03;
-      margin-bottom: 1rem;
+      line-height: 0.96;
       letter-spacing: -0.03em;
     }
 
-    .hero p {
+    .hero h1 {
+      font-size: clamp(2.7rem, 8vw, 4.8rem);
+      margin-bottom: 14px;
+    }
+
+    .lead {
       color: var(--text-soft);
       font-size: 1.04rem;
-      max-width: 38rem;
+      max-width: 62ch;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.3rem;
+      gap: 12px;
+      margin-top: 22px;
     }
 
     .btn-primary,
     .btn-secondary,
-    .btn-complete {
-      min-height: 48px;
-      border-radius: var(--radius-pill);
-      padding: 0.9rem 1.2rem;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
+    .copy-btn {
+      min-height: 50px;
+      padding: 0.95rem 1.2rem;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      transition: transform var(--transition), filter var(--transition), background var(--transition), border-color var(--transition);
     }
 
     .btn-primary {
-      background: linear-gradient(120deg, var(--terracotta), var(--gold));
+      background: linear-gradient(180deg, var(--primary), var(--primary-strong));
       color: #fff;
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-sm);
     }
 
-    .btn-secondary,
-    .btn-complete {
-      background: var(--surface);
+    .btn-secondary {
       border: 1px solid var(--border);
-      color: var(--text-soft);
+      background: var(--surface);
+      color: var(--text);
     }
 
     .hero-card,
     .card,
-    .accordion-item,
-    .calculator,
+    .calc-card,
     .calendar-card,
-    .post-card,
-    .faq-item {
+    .faq-item,
+    .gallery-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
@@ -305,119 +333,253 @@
     }
 
     .hero-card {
+      padding: 14px;
       overflow: hidden;
+      position: relative;
     }
 
     .hero-card img {
-      width: 100%;
+      border-radius: calc(var(--radius-md) - 6px);
       aspect-ratio: 4 / 5;
       object-fit: cover;
     }
 
-    .hero-card-body {
-      padding: 1rem;
-      color: var(--text-soft);
+    .floating-note {
+      margin-top: 12px;
       font-size: 0.95rem;
+      color: var(--text-soft);
+    }
+
+    .candle-demo {
+      position: absolute;
+      right: 16px;
+      bottom: 18px;
+      width: 92px;
+      background: color-mix(in srgb, var(--surface) 88%, transparent);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 12px 10px 10px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .candle-jar {
+      width: 46px;
+      height: 62px;
+      margin: 18px auto 0;
+      border-radius: 18px 18px 10px 10px;
+      background: linear-gradient(180deg, var(--surface-2), var(--surface-3));
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .wick {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      width: 2px;
+      height: 14px;
+      transform: translateX(-50%);
+      background: #4c2d1a;
+      border-radius: 999px;
+    }
+
+    .flame {
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      width: 20px;
+      height: 30px;
+      transform: translateX(-50%);
+      background: radial-gradient(circle at 30% 20%, #fff7d3, #f7b869 58%, rgba(233, 126, 58, 0.12) 75%);
+      border-radius: 50% 50% 60% 60%;
+      filter: drop-shadow(0 0 14px rgba(255, 220, 155, 0.9));
+      transform-origin: bottom center;
+      animation: flameDance 2.6s infinite ease-in-out alternate;
+    }
+
+    .candle-demo.off .flame {
+      opacity: 0;
+      animation: none;
+    }
+
+    .smoke {
+      position: absolute;
+      top: -32px;
+      left: 50%;
+      width: 24px;
+      height: 38px;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(88, 72, 62, 0.28), transparent 72%);
+      opacity: 0;
+    }
+
+    .candle-demo.off .smoke {
+      animation: smokeUp 1s ease-out forwards;
+    }
+
+    .candle-toggle {
+      margin-top: 10px;
+      font-size: 0.72rem;
+      color: var(--text-faint);
+    }
+
+    .candle-toggle button {
+      color: var(--terracotta);
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    @keyframes flameDance {
+      0% { transform: translateX(-50%) rotate(-2deg) scale(1); }
+      50% { transform: translateX(-52%) rotate(2deg) scale(1.05, 0.97); }
+      100% { transform: translateX(-49%) rotate(-1deg) scale(0.98, 1.02); }
+    }
+
+    @keyframes smokeUp {
+      0% { opacity: 0.32; transform: translateX(-50%) translateY(0); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(-16px); }
     }
 
     section {
-      padding: 2.5rem 0;
+      padding: 34px 0;
     }
 
     .section-head {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: space-between;
+      gap: 14px;
       align-items: end;
-      margin-bottom: 1.3rem;
+      justify-content: space-between;
+      margin-bottom: 18px;
     }
 
-    .section-head h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 4vw, 2.7rem);
-      line-height: 1.05;
-      margin-bottom: 0.4rem;
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 8px;
     }
 
-    .section-head p {
+    .section-desc {
       color: var(--text-soft);
-      max-width: 38rem;
-      font-size: 0.95rem;
+      max-width: 66ch;
     }
 
-    .grid {
+    .complete-btn {
+      min-height: 44px;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background var(--transition), border-color var(--transition), color var(--transition);
+    }
+
+    .complete-btn.completed {
+      background: rgba(77, 122, 87, 0.12);
+      border-color: rgba(77, 122, 87, 0.28);
+      color: var(--success);
+    }
+
+    .complete-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid currentColor;
       display: grid;
-      gap: 1rem;
+      place-items: center;
+      font-size: 0.72rem;
+      flex-shrink: 0;
     }
 
-    .card {
-      padding: 1.2rem;
+    .grid,
+    .grid-2,
+    .grid-3,
+    .content-grid,
+    .gallery-grid {
+      display: grid;
+      gap: 16px;
     }
 
-    .card h3 {
-      margin-bottom: 0.45rem;
-      font-size: 1.08rem;
+    .card,
+    .calc-card,
+    .calendar-card,
+    .faq-item {
+      padding: 18px;
+    }
+
+    .card h3,
+    .calc-card h3,
+    .calendar-card h3,
+    .faq-item h3 {
+      margin-bottom: 8px;
+      font-size: 1.14rem;
     }
 
     .card p,
-    .card li {
+    .faq-item p,
+    .calendar-card p {
       color: var(--text-soft);
-      font-size: 0.95rem;
     }
 
-    .card ul {
-      margin-top: 0.7rem;
-      padding-left: 1rem;
+    .card ul,
+    .calendar-card ul {
+      padding-left: 18px;
+      color: var(--text-soft);
+      margin-top: 8px;
     }
 
-    .card ul li + li {
-      margin-top: 0.4rem;
+    .card li,
+    .calendar-card li {
+      margin: 0.35rem 0;
     }
 
-    .checklist {
-      display: grid;
-      gap: 0.7rem;
-      margin-top: 1rem;
-      padding: 1rem;
-      border-radius: 1rem;
-      background: color-mix(in srgb, var(--surface) 70%, var(--bg-soft));
-      border: 1px dashed var(--border);
-    }
-
-    .check-item {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-    }
-
-    .check-item input {
-      width: 18px;
-      height: 18px;
-      accent-color: var(--primary);
+    .pill {
+      display: inline-flex;
+      padding: 0.3rem 0.7rem;
+      border-radius: var(--radius-full);
+      background: rgba(179, 122, 75, 0.1);
+      color: var(--primary-strong);
+      font-size: 0.76rem;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
 
     .accordion {
       display: grid;
-      gap: 0.75rem;
+      gap: 12px;
     }
 
-    .accordion-header {
+    .accordion-item {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .accordion-trigger {
       width: 100%;
-      padding: 1rem 1.1rem;
+      padding: 16px 18px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      color: var(--text);
+      justify-content: space-between;
+      gap: 12px;
       text-align: left;
     }
 
-    .accordion-title {
-      font-weight: 700;
-      font-size: 1rem;
+    .accordion-trigger h3 {
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
+    .accordion-trigger small {
+      display: block;
+      color: var(--text-faint);
+      margin-top: 4px;
     }
 
     .accordion-icon {
@@ -427,134 +589,209 @@
       display: grid;
       place-items: center;
       border: 1px solid var(--border);
+      background: var(--bg-soft);
       color: var(--primary-strong);
-      background: var(--primary-soft);
       flex-shrink: 0;
-      transition: transform 0.2s ease;
+      transition: transform var(--transition);
     }
 
-    .accordion-item.open .accordion-icon {
+    .accordion-item.active .accordion-icon {
       transform: rotate(45deg);
     }
 
-    .accordion-content {
-      display: grid;
-      grid-template-rows: 0fr;
-      transition: grid-template-rows 0.28s ease;
-    }
-
-    .accordion-item.open .accordion-content {
-      grid-template-rows: 1fr;
-    }
-
-    .accordion-body {
-      overflow: hidden;
-      padding: 0 1.1rem 1rem;
+    .accordion-panel {
+      display: none;
+      padding: 0 18px 18px;
       color: var(--text-soft);
-      font-size: 0.95rem;
     }
 
-    .accordion-body ul {
-      margin-top: 0.7rem;
-      padding-left: 1rem;
+    .accordion-item.active .accordion-panel {
+      display: block;
     }
 
-    .accordion-body li + li {
-      margin-top: 0.35rem;
+    .copy-btn {
+      background: rgba(179, 122, 75, 0.1);
+      color: var(--primary-strong);
+      border: 1px solid rgba(179, 122, 75, 0.18);
+      margin-top: 14px;
     }
 
-    .calculator {
-      padding: 1.2rem;
+    .copy-btn.copied {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .calendar-list {
       display: grid;
-      gap: 0.9rem;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .calendar-item {
+      border: 1px solid var(--border-soft);
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .calendar-item strong {
+      display: block;
+      margin-bottom: 4px;
     }
 
     .calc-grid {
       display: grid;
-      gap: 0.8rem;
+      gap: 12px;
+      margin-top: 12px;
     }
 
     .field {
       display: grid;
-      gap: 0.28rem;
+      gap: 6px;
     }
 
     .field label {
-      font-size: 0.75rem;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
-      letter-spacing: 0.13em;
-      color: var(--text-muted);
-      font-weight: 700;
+      color: var(--text-faint);
     }
 
-    .field input,
-    .field select,
-    .field textarea {
-      width: 100%;
-      padding: 0.85rem 0.9rem;
-      border-radius: 0.9rem;
+    .field input {
+      min-height: 48px;
+      padding: 0.85rem 0.95rem;
+      border-radius: 14px;
       border: 1px solid var(--border);
       background: var(--surface);
       color: var(--text);
     }
 
-    .result-box {
-      padding: 1rem;
-      border-radius: 1rem;
-      background: color-mix(in srgb, var(--primary-soft) 50%, var(--surface));
+    .calc-result {
+      margin-top: 14px;
+      border-radius: 16px;
+      padding: 14px;
+      background: var(--surface-2);
       border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .gallery-copy {
+      padding: 14px;
+    }
+
+    .gallery-copy p {
       color: var(--text-soft);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
     }
 
-    .calendar-grid,
-    .post-grid,
-    .faq-grid {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .calendar-card,
-    .post-card,
-    .faq-item {
-      padding: 1rem;
-    }
-
-    .calendar-card strong,
-    .post-card strong,
-    .faq-item strong {
-      display: block;
-      margin-bottom: 0.45rem;
+    .gallery-copy button {
+      min-height: 42px;
+      padding: 0.75rem 0.95rem;
+      border-radius: var(--radius-full);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
       color: var(--text);
     }
 
-    .copy-btn {
-      margin-top: 0.8rem;
-      min-height: 44px;
-      padding: 0.8rem 1rem;
-      border-radius: var(--radius-pill);
-      border: none;
-      background: var(--primary-soft);
-      color: var(--primary-strong);
-      font-weight: 700;
-      cursor: pointer;
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.78);
     }
 
-    .copy-status {
-      margin-top: 0.45rem;
-      font-size: 0.82rem;
-      color: var(--text-muted);
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: min(960px, 100%);
+      max-height: 90vh;
+      width: 100%;
+    }
+
+    .lightbox img {
+      width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 20px;
+      background: #000;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.65);
+      color: #fff;
+      display: grid;
+      place-items: center;
+    }
+
+    .resource-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .resource-item {
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px dashed var(--border);
+      background: color-mix(in srgb, var(--surface) 94%, transparent);
+    }
+
+    .resource-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .resource-item p {
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .resource-item a {
+      color: var(--terracotta);
+      text-decoration: underline;
+      font-weight: 600;
     }
 
     .footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 0 3rem;
-      color: var(--text-muted);
-      font-size: 0.88rem;
+      padding: 28px 0 50px;
+      border-top: 1px solid var(--border-soft);
+      color: var(--text-soft);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .fade-up {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(22px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
@@ -563,27 +800,23 @@
       transform: translateY(0);
     }
 
-    @media (min-width: 760px) {
+    @media (min-width: 860px) {
       .hero-grid,
-      .two-col,
-      .calendar-grid,
-      .post-grid,
-      .faq-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
+      .grid-2,
       .calc-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-    }
 
-    @media (min-width: 980px) {
-      .nav {
-        display: flex;
+      .content-grid,
+      .gallery-grid,
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
-      .menu-btn {
-        display: none;
+      .footer-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
       }
     }
 
@@ -596,6 +829,7 @@
       *::before,
       *::after {
         animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
 
@@ -607,77 +841,68 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <a href="#inicio" class="skip-link">Saltar al contenido</a>
 
   <div class="progress-wrap" aria-hidden="true">
     <div class="progress-bar" id="progressBar"></div>
   </div>
 
-  <header class="header">
-    <div class="container header-inner">
-      <a href="#inicio" class="brand" aria-label="Ir al inicio del módulo 6 de Velspace">
-        <div class="brand-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3c1.9 2.2 4 4.8 4 7.4A4 4 0 1 1 8 10.4C8 7.8 10.1 5.2 12 3Z"></path>
-            <path d="M7 21h10"></path>
-          </svg>
-        </div>
-        <div class="brand-text">
-          <small>Velspace · Módulo 6</small>
-          <strong>Marketing y Ventas en Redes Sociales</strong>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="./index.html" class="brand" aria-label="Volver al inicio de Velspace">
+        <div class="brand-mark" aria-hidden="true"><span>V</span></div>
+        <div class="brand-copy">
+          <strong>Velspace</strong>
+          <small>Módulo 06 · Marketing y Ventas en Redes Sociales</small>
         </div>
       </a>
 
-      <nav class="nav" aria-label="Navegación del módulo">
-        <a href="#inicio">Inicio</a>
-        <a href="#estrategia">Estrategia</a>
-        <a href="#contenido">Contenido</a>
-        <a href="#calendario">Calendario</a>
-        <a href="#ventas">Ventas</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-
-      <div class="header-actions">
-        <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambiar modo de color">◐</button>
-        <button class="icon-btn menu-btn" id="menuToggle" type="button" aria-label="Abrir menú">☰</button>
+      <div class="nav-actions">
+        <button class="theme-btn" id="themeToggle" type="button" aria-label="Cambiar modo de color">Modo oscuro</button>
+        <a class="nav-btn" href="./modulo-05.html">Volver al módulo 05</a>
       </div>
-    </div>
-
-    <div class="container mobile-nav" id="mobileNav" aria-label="Menú móvil">
-      <a href="#inicio">Inicio</a>
-      <a href="#estrategia">Estrategia</a>
-      <a href="#contenido">Contenido</a>
-      <a href="#calendario">Calendario</a>
-      <a href="#ventas">Ventas</a>
-      <a href="#faq">FAQ</a>
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="inicio">
+  <main id="inicio">
+    <section class="hero">
       <div class="container hero-grid">
         <div class="fade-up">
-          <span class="eyebrow">Velspace · Curso premium</span>
-          <h1>Módulo 6: cómo vender tus velas en redes sin sentirte invasiva</h1>
-          <p>
-            En este módulo de Velspace vas a aprender a mostrar tus velas con elegancia, cercanía y estrategia. La idea no es “publicar por publicar”, sino crear una presencia que inspire confianza y haga que tus clientas digan: “quiero esa vela en mi casa”.
+          <span class="eyebrow">Curso premium creado por Velspace</span>
+          <h1>Marketing y ventas en redes sociales para vender velas con estilo y confianza</h1>
+          <p class="lead">
+            En este módulo de Velspace vamos a convertir tus velas en una propuesta que se vea bonita, clara y comprable.
+            No se trata solo de publicar fotos; se trata de transmitir una experiencia cálida, elegante y memorable.
           </p>
+
           <div class="hero-actions">
-            <a class="btn-primary" href="#contenido">Ver plan de contenido</a>
-            <button class="btn-secondary" type="button" id="markModuleBtn">Marcar módulo como completado</button>
+            <a href="#estrategia" class="btn-primary">Empezar este módulo</a>
+            <a href="./modulo-07.html" class="btn-secondary">Ir al siguiente módulo</a>
           </div>
         </div>
 
         <aside class="hero-card fade-up">
           <img
             src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=1200&q=80"
-            alt="Vela aromática encendida sobre una mesa beige con styling de marca premium"
+            alt="Vela premium encendida con estética elegante y cálida"
             width="1200"
             height="1500"
             loading="lazy"
           />
-          <div class="hero-card-body">
-            Velspace recomienda vender desde la emoción y la experiencia: una vela no es solo cera, es atmósfera, regalo, calma y ritual.
+          <p class="floating-note">
+            Velspace enseña a vender la sensación completa: aroma, calma, ritual, regalo y belleza.
+          </p>
+
+          <div class="candle-demo" id="candleDemo" aria-hidden="true">
+            <div class="candle-jar">
+              <div class="wick"></div>
+              <div class="flame"></div>
+              <div class="smoke"></div>
+            </div>
+            <div class="candle-toggle">
+              Demo visual ·
+              <button type="button" id="candleToggle">encender / apagar</button>
+            </div>
           </div>
         </aside>
       </div>
@@ -685,36 +910,42 @@
 
     <section id="estrategia">
       <div class="container">
-        <div class="section-head fade-up">
+        <div class="section-head">
           <div>
-            <h2>Tu estrategia simple y elegante</h2>
-            <p>No necesitas ser experta en marketing. Necesitas claridad, constancia y una estética coherente con tu marca Velspace.</p>
+            <h2 class="section-title">La estrategia base de Velspace</h2>
+            <p class="section-desc">
+              Antes de pensar en vender más, primero necesitas entender qué estás vendiendo realmente y cómo quieres que la gente te recuerde.
+            </p>
           </div>
-          <button class="btn-complete" type="button" data-complete-target="estrategia">Marcar sección como completada</button>
+          <button class="complete-btn" type="button" data-section="estrategia">
+            <span class="complete-dot">✓</span>
+            <span>Marcar sección completada</span>
+          </button>
         </div>
 
-        <div class="grid two-col fade-up">
+        <div class="grid-3 fade-up">
           <article class="card">
-            <h3>Qué red usar para cada objetivo</h3>
-            <ul>
-              <li><strong>Instagram:</strong> ideal para fotos bonitas, reels cortos, testimonios y catálogo visual.</li>
-              <li><strong>TikTok:</strong> perfecto para videos del proceso, detrás de cámaras y tips rápidos.</li>
-              <li><strong>Facebook:</strong> muy útil para grupos locales, ventas por comunidad y clientas adultas.</li>
-              <li><strong>WhatsApp:</strong> excelente para cerrar pedidos, enviar catálogo y generar recompra.</li>
-            </ul>
+            <span class="pill">Paso 1</span>
+            <h3>No vendas solo velas</h3>
+            <p>
+              Vende una experiencia: una vela para relajarse, una vela para regalar, una vela para decorar y elevar un rincón del hogar.
+            </p>
           </article>
 
           <article class="card">
-            <h3>Qué vender realmente</h3>
+            <span class="pill">Paso 2</span>
+            <h3>Crea una mini colección</h3>
             <p>
-              No vendas “una vela de 200 gramos”. Vende una experiencia: un regalo delicado, una pausa al final del día, una casa más acogedora o un detalle especial para una ocasión.
+              Empieza con 3 aromas y una estética coherente. Eso te ayuda a verte profesional, evita saturarte y hace más fácil mostrar tu catálogo.
             </p>
-            <div class="checklist">
-              <label class="check-item"><input type="checkbox" data-check="foto"> Fotos limpias y luminosas</label>
-              <label class="check-item"><input type="checkbox" data-check="bio"> Biografía clara en Instagram</label>
-              <label class="check-item"><input type="checkbox" data-check="precios"> Precios listos para enviar</label>
-              <label class="check-item"><input type="checkbox" data-check="envios"> Información de envíos preparada</label>
-            </div>
+          </article>
+
+          <article class="card">
+            <span class="pill">Paso 3</span>
+            <h3>Haz que todo combine</h3>
+            <p>
+              Fotos, etiquetas, textos y empaque deben sentirse parte del mismo universo visual. Ahí es donde nace el valor percibido.
+            </p>
           </article>
         </div>
       </div>
@@ -722,80 +953,77 @@
 
     <section id="contenido">
       <div class="container">
-        <div class="section-head fade-up">
+        <div class="section-head">
           <div>
-            <h2>Guía de contenido paso a paso</h2>
-            <p>Aquí tienes un sistema de publicaciones que puedes repetir cada semana sin complicarte.</p>
+            <h2 class="section-title">Qué contenido publicar para vender mejor</h2>
+            <p class="section-desc">
+              Aquí tienes una guía clara de tipos de contenido para Instagram, TikTok y Facebook. Toca cada bloque y revisa cómo usarlo.
+            </p>
           </div>
-          <button class="btn-complete" type="button" data-complete-target="contenido">Marcar sección como completada</button>
+          <button class="complete-btn" type="button" data-section="contenido">
+            <span class="complete-dot">✓</span>
+            <span>Marcar sección completada</span>
+          </button>
         </div>
 
         <div class="accordion fade-up">
-          <article class="accordion-item open">
-            <button class="accordion-header" type="button">
-              <span class="accordion-title">1. Contenido que conecta</span>
+          <article class="accordion-item active">
+            <button class="accordion-trigger" type="button">
+              <div>
+                <h3>Instagram · La vitrina elegante de tu marca</h3>
+                <small>Ideal para estética, confianza visual y branding.</small>
+              </div>
               <span class="accordion-icon">+</span>
             </button>
-            <div class="accordion-content">
-              <div class="accordion-body">
-                <p>Muestra tu historia, tus manos trabajando, tu mesa, tus materiales y lo que te inspira.</p>
-                <ul>
-                  <li>“Así empecé a hacer velas desde casa”.</li>
-                  <li>“Mi rincón favorito para crear”.</li>
-                  <li>“La fragancia que más paz me da”.</li>
-                </ul>
-              </div>
+            <div class="accordion-panel">
+              <p>
+                Instagram es donde tu marca se ve fina, ordenada y aspiracional. Aquí funcionan muy bien las fotos cuidadas, los reels del proceso y los carruseles con tips simples.
+              </p>
+              <ul style="padding-left:18px; margin-top:10px;">
+                <li>Publica fotos con luz natural y fondos limpios.</li>
+                <li>Usa reels cortos mostrando el vertido de la cera o el empaque final.</li>
+                <li>Combina inspiración, producto y cercanía.</li>
+              </ul>
             </div>
           </article>
 
           <article class="accordion-item">
-            <button class="accordion-header" type="button">
-              <span class="accordion-title">2. Contenido que educa</span>
+            <button class="accordion-trigger" type="button">
+              <div>
+                <h3>TikTok · El detrás de escena que genera conexión</h3>
+                <small>Ideal para mostrar proceso, textura y personalidad.</small>
+              </div>
               <span class="accordion-icon">+</span>
             </button>
-            <div class="accordion-content">
-              <div class="accordion-body">
-                <p>Educar genera autoridad. Explica cosas simples que hagan sentir a tu audiencia que aprende contigo.</p>
-                <ul>
-                  <li>Diferencia entre cera de soja y parafina.</li>
-                  <li>Cómo cuidar una vela para que dure más.</li>
-                  <li>Qué aroma elegir según el momento del día.</li>
-                </ul>
-              </div>
+            <div class="accordion-panel">
+              <p>
+                En TikTok no necesitas perfección extrema. Lo que más conecta es mostrar cómo trabajas, cómo pruebas aromas, cómo se siente tu producto y qué hay detrás de tu rutina.
+              </p>
+              <ul style="padding-left:18px; margin-top:10px;">
+                <li>Graba clips cortos del proceso con texto encima.</li>
+                <li>Cuenta errores reales y cómo los solucionaste.</li>
+                <li>Muestra tu mesa de trabajo y tu mini ritual creativo.</li>
+              </ul>
             </div>
           </article>
 
           <article class="accordion-item">
-            <button class="accordion-header" type="button">
-              <span class="accordion-title">3. Contenido que vende</span>
+            <button class="accordion-trigger" type="button">
+              <div>
+                <h3>Facebook · Cercanía local y venta directa</h3>
+                <small>Ideal para comunidad, grupos y pedidos cerca de ti.</small>
+              </div>
               <span class="accordion-icon">+</span>
             </button>
-            <div class="accordion-content">
-              <div class="accordion-body">
-                <p>Habla de tu producto con naturalidad, sin sonar insistente.</p>
-                <ul>
-                  <li>“Ya están disponibles las velas de esta semana”.</li>
-                  <li>“Quedan 5 unidades del aroma vainilla chai”.</li>
-                  <li>“Esta caja regalo está pensada para cumpleaños y regalos delicados”.</li>
-                </ul>
-              </div>
-            </div>
-          </article>
-
-          <article class="accordion-item">
-            <button class="accordion-header" type="button">
-              <span class="accordion-title">4. Contenido que prueba</span>
-              <span class="accordion-icon">+</span>
-            </button>
-            <div class="accordion-content">
-              <div class="accordion-body">
-                <p>Usa testimonios, fotos de clientas, reseñas por WhatsApp y videos de velas encendidas en casas reales.</p>
-                <ul>
-                  <li>Captura de mensaje bonito de una clienta.</li>
-                  <li>Antes y después del empaque.</li>
-                  <li>Video de una vela encendida con música suave.</li>
-                </ul>
-              </div>
+            <div class="accordion-panel">
+              <p>
+                Facebook sigue siendo muy útil para llegar a personas de tu zona, compartir promociones, publicar en grupos locales y generar pedidos por mensaje.
+              </p>
+              <ul style="padding-left:18px; margin-top:10px;">
+                <li>Comparte packs de regalo y promociones estacionales.</li>
+                <li>Publica testimonios y fotos reales de clientas.</li>
+                <li>Invita a escribirte por WhatsApp o DM.</li>
+              </ul>
             </div>
           </article>
         </div>
@@ -804,97 +1032,253 @@
 
     <section id="calendario">
       <div class="container">
-        <div class="section-head fade-up">
+        <div class="section-head">
           <div>
-            <h2>Calendario de contenido de 7 días</h2>
-            <p>Este mini plan de Velspace te ayuda a publicar durante una semana completa sin quedarte en blanco.</p>
+            <h2 class="section-title">Calendario semanal de contenido Velspace</h2>
+            <p class="section-desc">
+              Aquí tienes una propuesta lista para usar. Puedes copiarla y pegarla en tus notas para empezar a publicar esta semana.
+            </p>
           </div>
-          <button class="btn-complete" type="button" data-complete-target="calendario">Marcar sección como completada</button>
+          <button class="complete-btn" type="button" data-section="calendario">
+            <span class="complete-dot">✓</span>
+            <span>Marcar sección completada</span>
+          </button>
         </div>
 
-        <div class="calendar-grid fade-up">
-          <article class="calendar-card">
-            <strong>Día 1 · Presentación</strong>
-            <p>Foto tuya o de tu rincón de trabajo. Cuenta por qué empezaste con las velas y qué te inspira.</p>
-          </article>
-          <article class="calendar-card">
-            <strong>Día 2 · Proceso</strong>
-            <p>Video corto derritiendo la cera o vertiendo en frascos. Añade una frase cálida y simple.</p>
-          </article>
-          <article class="calendar-card">
-            <strong>Día 3 · Educación</strong>
-            <p>Post tipo carrusel con un tip: cómo cuidar una vela o cómo elegir fragancia.</p>
-          </article>
-          <article class="calendar-card">
-            <strong>Día 4 · Producto</strong>
-            <p>Muestra una vela estrella con precio, aroma, tamaño y para qué ocasión la recomiendas.</p>
-          </article>
-          <article class="calendar-card">
-            <strong>Día 5 · Testimonio</strong>
-            <p>Comparte un mensaje bonito de una clienta o una experiencia de regalo.</p>
-          </article>
-          <article class="calendar-card">
-            <strong>Día 6 · Lifestyle</strong>
-            <p>Sube una foto de la vela en una escena acogedora: libro, café, manta, flores secas.</p>
-          </article>
-          <article class="calendar-card">
-            <strong>Día 7 · Venta suave</strong>
-            <p>Anuncia disponibilidad, packs o pedidos de la semana con una llamada a la acción clara.</p>
-          </article>
-        </div>
+        <div class="calendar-card fade-up">
+          <h3>Plan de 7 días</h3>
+          <div class="calendar-list">
+            <div class="calendar-item">
+              <strong>Día 1</strong>
+              Presenta tu marca y cuenta por qué empezaste a hacer velas.
+            </div>
+            <div class="calendar-item">
+              <strong>Día 2</strong>
+              Reel del proceso de vertido con música suave.
+            </div>
+            <div class="calendar-item">
+              <strong>Día 3</strong>
+              Foto de tu rincón de trabajo con un texto cercano.
+            </div>
+            <div class="calendar-item">
+              <strong>Día 4</strong>
+              Post: 3 errores comunes que ya aprendiste a evitar.
+            </div>
+            <div class="calendar-item">
+              <strong>Día 5</strong>
+              Testimonio real o reseña de una persona que recibió tu vela.
+            </div>
+            <div class="calendar-item">
+              <strong>Día 6</strong>
+              Video encendiendo una vela en una escena acogedora.
+            </div>
+            <div class="calendar-item">
+              <strong>Día 7</strong>
+              Oferta simple: pack de regalo, edición especial o envío local.
+            </div>
+          </div>
 
-        <button class="copy-btn" id="copyCalendarBtn" type="button">Copiar calendario de 7 días</button>
-        <p class="copy-status" id="copyCalendarStatus"></p>
+          <button class="copy-btn" type="button" id="copyCalendarBtn">Copiar calendario semanal</button>
+        </div>
       </div>
     </section>
 
     <section id="ventas">
       <div class="container">
-        <div class="section-head fade-up">
+        <div class="section-head">
           <div>
-            <h2>Ventas, mensajes y precios</h2>
-            <p>Haz que responder sea más fácil y rápido. Aquí tienes una pequeña calculadora y ejemplos de mensajes listos para usar.</p>
+            <h2 class="section-title">Cómo vender sin sentirte invasiva</h2>
+            <p class="section-desc">
+              Vender bien no es presionar; es ayudar a que la persona entienda por qué tu producto merece un espacio en su casa o en su regalo.
+            </p>
           </div>
-          <button class="btn-complete" type="button" data-complete-target="ventas">Marcar sección como completada</button>
+          <button class="complete-btn" type="button" data-section="ventas">
+            <span class="complete-dot">✓</span>
+            <span>Marcar sección completada</span>
+          </button>
         </div>
 
-        <div class="grid two-col fade-up">
-          <article class="calculator">
-            <h3>Calculadora rápida de precio sugerido</h3>
-            <div class="calc-grid">
-              <div class="field">
-                <label for="costeBase">Costo total por vela</label>
-                <input type="number" id="costeBase" placeholder="Ej: 4.5" min="0" step="0.01">
-              </div>
-              <div class="field">
-                <label for="margenVenta">Margen deseado (%)</label>
-                <input type="number" id="margenVenta" placeholder="Ej: 80" min="0" step="1">
-              </div>
+        <div class="grid-2 fade-up">
+          <article class="card">
+            <h3>Textos que convierten mejor</h3>
+            <ul>
+              <li>Habla del beneficio emocional, no solo del aroma.</li>
+              <li>Usa frases simples: “para una noche tranquila”, “para regalar bonito”, “para hacer del hogar un refugio”.</li>
+              <li>Cierra con una llamada clara: “Escríbeme para reservar la tuya”.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Ofertas que sí funcionan</h3>
+            <ul>
+              <li>Pack de 2 o 3 velas con descuento pequeño.</li>
+              <li>Ediciones limitadas por temporada.</li>
+              <li>Set regalo con tarjeta y empaque especial.</li>
+              <li>Promo por preventa para producir con más tranquilidad.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="precios">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Calculadora rápida para precio sugerido</h2>
+            <p class="section-desc">
+              Esta herramienta te ayuda a pensar tus precios de forma sencilla: suma costos reales y agrega el margen que deseas ganar.
+            </p>
+          </div>
+          <button class="complete-btn" type="button" data-section="precios">
+            <span class="complete-dot">✓</span>
+            <span>Marcar sección completada</span>
+          </button>
+        </div>
+
+        <div class="calc-card fade-up">
+          <h3>Calculadora Velspace</h3>
+
+          <div class="calc-grid">
+            <div class="field">
+              <label for="mat">Costo de materiales por vela</label>
+              <input id="mat" type="number" step="0.01" min="0" placeholder="Ej: 3.50" />
             </div>
-            <button class="btn-primary" id="calcBtn" type="button">Calcular</button>
-            <div class="result-box" id="calcResult">
-              Escribe tus datos y aquí verás un precio sugerido de venta.
+
+            <div class="field">
+              <label for="pack">Costo de empaque</label>
+              <input id="pack" type="number" step="0.01" min="0" placeholder="Ej: 1.20" />
+            </div>
+
+            <div class="field">
+              <label for="labor">Valor de tu tiempo</label>
+              <input id="labor" type="number" step="0.01" min="0" placeholder="Ej: 1.80" />
+            </div>
+
+            <div class="field">
+              <label for="margin">Margen deseado (%)</label>
+              <input id="margin" type="number" step="1" min="0" placeholder="Ej: 80" />
+            </div>
+          </div>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;">
+            <button class="btn-primary" type="button" id="calcBtn">Calcular precio</button>
+            <div class="calc-result" id="calcResult">Tu resultado aparecerá aquí.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Galería de inspiración para vender mejor</h2>
+            <p class="section-desc">
+              Estas imágenes te recuerdan el tipo de atmósfera visual que ayuda a que una vela se sienta premium y deseable.
+            </p>
+          </div>
+          <button class="complete-btn" type="button" data-section="galeria">
+            <span class="complete-dot">✓</span>
+            <span>Marcar sección completada</span>
+          </button>
+        </div>
+
+        <div class="gallery-grid fade-up">
+          <article class="gallery-card">
+            <img
+              src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=1200&q=80"
+              alt="Vela premium en vaso elegante"
+              width="1200"
+              height="1500"
+              loading="lazy"
+            />
+            <div class="gallery-copy">
+              <p>Una presentación limpia y luminosa ayuda a vender sin tener que explicar demasiado.</p>
+              <button type="button" data-lightbox="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=1600&q=80">Ver imagen</button>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img
+              src="https://images.unsplash.com/photo-1632923924016-3e5d5ea0f40b?auto=format&fit=crop&w=1200&q=80"
+              alt="Set de velas decorativas premium"
+              width="1200"
+              height="1500"
+              loading="lazy"
+            />
+            <div class="gallery-copy">
+              <p>Las colecciones se ven más profesionales cuando comparten tonos, frascos y estilo visual.</p>
+              <button type="button" data-lightbox="https://images.unsplash.com/photo-1632923924016-3e5d5ea0f40b?auto=format&fit=crop&w=1600&q=80">Ver imagen</button>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img
+              src="https://images.unsplash.com/photo-1615529328331-f8917597711f?auto=format&fit=crop&w=1200&q=80"
+              alt="Velas encendidas en una escena cálida del hogar"
+              width="1200"
+              height="1500"
+              loading="lazy"
+            />
+            <div class="gallery-copy">
+              <p>No vendas solo un objeto: vende un momento, una emoción y una atmósfera.</p>
+              <button type="button" data-lightbox="https://images.unsplash.com/photo-1615529328331-f8917597711f?auto=format&fit=crop&w=1600&q=80">Ver imagen</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Recursos útiles para este módulo</h2>
+            <p class="section-desc">
+              Estos recursos te ayudan a reforzar tu práctica, inspirarte y seguir construyendo tu presencia digital con orden.
+            </p>
+          </div>
+          <button class="complete-btn" type="button" data-section="recursos">
+            <span class="complete-dot">✓</span>
+            <span>Marcar sección completada</span>
+          </button>
+        </div>
+
+        <div class="grid-2 fade-up">
+          <article class="card">
+            <h3>Tutoriales en YouTube</h3>
+            <div class="resource-list">
+              <div class="resource-item">
+                <strong>Buscar ideas de contenido para velas</strong>
+                <p>Usa esta búsqueda para ver ejemplos, reels y contenido visual de velas artesanales.</p>
+                <a href="https://www.youtube.com/results?search_query=contenido+para+vender+velas+artesanales" target="_blank" rel="noopener noreferrer">Abrir búsqueda</a>
+              </div>
+
+              <div class="resource-item">
+                <strong>Fotografía de producto casera</strong>
+                <p>Ideal para aprender a iluminar tus velas con recursos simples.</p>
+                <a href="https://www.youtube.com/results?search_query=fotografia+de+producto+casera+para+emprendedoras" target="_blank" rel="noopener noreferrer">Abrir búsqueda</a>
+              </div>
             </div>
           </article>
 
           <article class="card">
-            <h3>Mensajes que puedes usar por WhatsApp o DM</h3>
-            <div class="post-grid">
-              <div class="post-card">
-                <strong>Mensaje 1 · Respuesta a interés</strong>
-                <p>Hola, gracias por escribirme 💛. Tengo velas artesanales hechas a mano con aromas muy delicados. Si quieres, te envío las opciones disponibles y precios.</p>
+            <h3>Extras recomendados por Velspace</h3>
+            <div class="resource-list">
+              <div class="resource-item">
+                <strong>Checklist de branding</strong>
+                <p>Elige una paleta, una tipografía y un estilo de foto antes de publicar sin rumbo.</p>
               </div>
-              <div class="post-card">
-                <strong>Mensaje 2 · Cierre suave</strong>
-                <p>Te puedo reservar la tuya hoy mismo. También tengo opción de regalo lista para entregar si la necesitas.</p>
+
+              <div class="resource-item">
+                <strong>Carpeta de referencias</strong>
+                <p>Guarda fotos, frases y ejemplos visuales para mantener coherencia en tu marca.</p>
               </div>
-              <div class="post-card">
-                <strong>Mensaje 3 · Recompra</strong>
-                <p>Hola, paso por aquí porque volvió uno de los aromas que más gustó. Si quieres, te guardo una antes de publicarlo.</p>
-              </div>
-              <div class="post-card">
-                <strong>Mensaje 4 · Post venta</strong>
-                <p>Gracias por tu compra. Cuando enciendas tu vela, recuerda cortar un poquito la mecha antes de usarla para que queme más bonito.</p>
+
+              <div class="resource-item">
+                <strong>Plantilla de respuestas rápidas</strong>
+                <p>Ten mensajes listos para responder precios, envíos y disponibilidad con más seguridad.</p>
               </div>
             </div>
           </article>
@@ -904,163 +1288,275 @@
 
     <section id="faq">
       <div class="container">
-        <div class="section-head fade-up">
+        <div class="section-head">
           <div>
-            <h2>Preguntas frecuentes del módulo 6</h2>
-            <p>Respuestas cortas para que no te bloquees al momento de vender o publicar.</p>
+            <h2 class="section-title">Preguntas frecuentes de este módulo</h2>
+            <p class="section-desc">
+              Algunas dudas aparecen siempre cuando toca vender. Aquí tienes respuestas simples, útiles y realistas.
+            </p>
           </div>
-          <button class="btn-complete" type="button" data-complete-target="faq">Marcar sección como completada</button>
+          <button class="complete-btn" type="button" data-section="faq">
+            <span class="complete-dot">✓</span>
+            <span>Marcar sección completada</span>
+          </button>
         </div>
 
-        <div class="faq-grid fade-up">
+        <div class="grid-2 fade-up">
           <article class="faq-item">
-            <strong>¿Tengo que publicar todos los días?</strong>
-            <p>No necesariamente. Lo importante es ser constante. Puedes empezar con 3 o 4 publicaciones por semana bien pensadas.</p>
+            <h3>¿Tengo que publicar todos los días?</h3>
+            <p>
+              No necesariamente. Es mejor publicar 3 veces por semana con coherencia y buena presentación que publicar todos los días sin dirección.
+            </p>
           </article>
+
           <article class="faq-item">
-            <strong>¿Y si no me gusta salir en cámara?</strong>
-            <p>No pasa nada. Puedes mostrar tus manos, tu mesa, tus velas, tus empaques y tu voz sin exponerte demasiado.</p>
+            <h3>¿Y si me da vergüenza mostrarme?</h3>
+            <p>
+              Puedes empezar mostrando tus manos, tu mesa, tus materiales y tu proceso. No hace falta aparecer en cámara de inmediato.
+            </p>
           </article>
+
           <article class="faq-item">
-            <strong>¿Qué hago si nadie responde al principio?</strong>
-            <p>Sigue publicando. Al comienzo estás sembrando confianza. La venta muchas veces llega después de varias apariciones.</p>
+            <h3>¿Qué hago si me preguntan precio y no compran?</h3>
+            <p>
+              Es normal. Responde con amabilidad, explica lo que incluye tu producto y sigue construyendo valor con tu contenido.
+            </p>
           </article>
+
           <article class="faq-item">
-            <strong>¿Cómo me veo más profesional?</strong>
-            <p>Usa buena luz, fondos limpios, textos claros, precios listos y una atención cálida. Eso ya te diferencia muchísimo.</p>
+            <h3>¿Qué red me conviene más al iniciar?</h3>
+            <p>
+              Instagram suele ser la más visual y ordenada para empezar, especialmente si tu producto tiene una estética cuidada.
+            </p>
           </article>
         </div>
       </div>
     </section>
 
-    <footer class="footer">
+    <section id="cierre">
       <div class="container">
-        <p><strong>Velspace</strong> · Módulo 6: Marketing y Ventas en Redes Sociales.</p>
-        <p>Archivo listo para guardar como <strong>modulo-6.html</strong> y subir a GitHub Pages.</p>
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Cierre del módulo 06</h2>
+            <p class="section-desc">
+              Ya no estás pensando solo como creadora de velas. Ahora también estás pensando como marca, como negocio y como experiencia.
+            </p>
+          </div>
+          <button class="complete-btn" type="button" data-section="cierre">
+            <span class="complete-dot">✓</span>
+            <span>Marcar sección completada</span>
+          </button>
+        </div>
+
+        <div class="grid-2 fade-up">
+          <article class="card">
+            <h3>Tu tarea recomendada</h3>
+            <ul>
+              <li>Definir tu mini colección inicial.</li>
+              <li>Tomar 6 fotos limpias de tus velas.</li>
+              <li>Grabar 2 videos cortos del proceso.</li>
+              <li>Publicar tu primera semana de contenido.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Siguiente paso</h3>
+            <p>
+              Continúa con el siguiente módulo y sigue construyendo tu proyecto Velspace con calma, orden y belleza.
+            </p>
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:16px;">
+              <a href="./modulo-05.html" class="btn-secondary">Volver al módulo 05</a>
+              <a href="./modulo-07.html" class="btn-primary">Ir al módulo 07</a>
+            </div>
+          </article>
+        </div>
       </div>
-    </footer>
+    </section>
   </main>
 
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog">
+    <div class="lightbox-inner">
+      <img id="lightboxImg" src="" alt="Imagen ampliada" />
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Cerrar imagen">✕</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p><strong>Velspace</strong> · Módulo 06 del curso “Fabricación de Velas Artesanales: Del Hobby al Negocio Rentable”.</p>
+      <p>© 2026 Velspace. Diseñado para una experiencia cálida, elegante y totalmente responsive.</p>
+    </div>
+  </footer>
+
   <script>
-    (() => {
-      const progressBar = document.getElementById('progressBar');
-      const updateProgress = () => {
+    (function () {
+      const root = document.documentElement;
+      const themeToggle = document.getElementById("themeToggle");
+      let dark = false;
+
+      function paintTheme() {
+        root.setAttribute("data-theme", dark ? "dark" : "light");
+        themeToggle.textContent = dark ? "Modo claro" : "Modo oscuro";
+        themeToggle.setAttribute("aria-label", dark ? "Cambiar a modo claro" : "Cambiar a modo oscuro");
+      }
+
+      paintTheme();
+
+      themeToggle.addEventListener("click", () => {
+        dark = !dark;
+        paintTheme();
+      });
+    })();
+
+    (function () {
+      const progressBar = document.getElementById("progressBar");
+
+      function updateProgress() {
         const scrollTop = window.scrollY;
         const height = document.documentElement.scrollHeight - window.innerHeight;
-        const percent = height > 0 ? (scrollTop / height) * 100 : 0;
-        progressBar.style.width = percent + '%';
-      };
-      window.addEventListener('scroll', updateProgress, { passive: true });
-      window.addEventListener('resize', updateProgress);
+        const progress = height > 0 ? (scrollTop / height) * 100 : 0;
+        progressBar.style.width = progress + "%";
+      }
+
+      window.addEventListener("scroll", updateProgress, { passive: true });
+      window.addEventListener("resize", updateProgress);
       updateProgress();
     })();
 
-    (() => {
-      const root = document.documentElement;
-      const themeToggle = document.getElementById('themeToggle');
-      let currentTheme = 'light';
-
-      themeToggle.addEventListener('click', () => {
-        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-        root.setAttribute('data-theme', currentTheme);
-      });
-    })();
-
-    (() => {
-      const menuToggle = document.getElementById('menuToggle');
-      const mobileNav = document.getElementById('mobileNav');
-      if (!menuToggle) return;
-      menuToggle.addEventListener('click', () => {
-        mobileNav.classList.toggle('open');
-      });
-    })();
-
-    (() => {
-      document.querySelectorAll('.accordion-item').forEach(item => {
-        const btn = item.querySelector('.accordion-header');
-        btn.addEventListener('click', () => {
-          const open = item.classList.contains('open');
-          document.querySelectorAll('.accordion-item').forEach(other => other.classList.remove('open'));
-          if (!open) item.classList.add('open');
+    (function () {
+      document.querySelectorAll(".accordion-trigger").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = btn.closest(".accordion-item");
+          item.classList.toggle("active");
         });
       });
     })();
 
-    (() => {
-      const btn = document.getElementById('calcBtn');
-      const result = document.getElementById('calcResult');
-      btn.addEventListener('click', () => {
-        const cost = parseFloat(document.getElementById('costeBase').value || '0');
-        const margin = parseFloat(document.getElementById('margenVenta').value || '0');
-        if (cost <= 0) {
-          result.textContent = 'Escribe un costo válido para calcular el precio.';
-          return;
-        }
-        const finalPrice = cost * (1 + margin / 100);
-        result.innerHTML = `Tu precio sugerido sería <strong>${finalPrice.toFixed(2)}</strong> en tu moneda base.`;
+    (function () {
+      const completeButtons = document.querySelectorAll(".complete-btn");
+      completeButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          btn.classList.toggle("completed");
+          const label = btn.querySelector("span:last-child");
+          const isDone = btn.classList.contains("completed");
+          label.textContent = isDone ? "Sección completada" : "Marcar sección completada";
+        });
       });
     })();
 
-    (() => {
-      const btn = document.getElementById('copyCalendarBtn');
-      const status = document.getElementById('copyCalendarStatus');
+    (function () {
+      const copyBtn = document.getElementById("copyCalendarBtn");
       const text = [
-        'Calendario Velspace de 7 días:',
-        'Día 1: Presentación de marca',
-        'Día 2: Video del proceso',
-        'Día 3: Tip educativo',
-        'Día 4: Producto destacado',
-        'Día 5: Testimonio',
-        'Día 6: Foto lifestyle',
-        'Día 7: Oferta o disponibilidad'
-      ].join('\n');
+        "Calendario semanal Velspace",
+        "Día 1: Presenta tu marca y por qué empezaste.",
+        "Día 2: Reel del proceso de vertido.",
+        "Día 3: Foto de tu rincón de trabajo.",
+        "Día 4: Post de errores comunes.",
+        "Día 5: Testimonio real.",
+        "Día 6: Video de una vela encendida.",
+        "Día 7: Oferta o pack especial."
+      ].join("\n");
 
-      btn.addEventListener('click', async () => {
+      copyBtn.addEventListener("click", async () => {
         try {
           await navigator.clipboard.writeText(text);
-          status.textContent = 'Calendario copiado correctamente.';
-        } catch {
-          status.textContent = 'No se pudo copiar automáticamente.';
+          copyBtn.classList.add("copied");
+          copyBtn.textContent = "Calendario copiado";
+          setTimeout(() => {
+            copyBtn.classList.remove("copied");
+            copyBtn.textContent = "Copiar calendario semanal";
+          }, 2200);
+        } catch (error) {
+          copyBtn.textContent = "No se pudo copiar";
+          setTimeout(() => {
+            copyBtn.textContent = "Copiar calendario semanal";
+          }, 2200);
         }
       });
     })();
 
-    (() => {
-      document.querySelectorAll('[data-complete-target]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const completed = btn.dataset.completed === 'true';
-          btn.dataset.completed = completed ? 'false' : 'true';
-          btn.textContent = completed ? 'Marcar sección como completada' : 'Sección completada';
-        });
-      });
+    (function () {
+      const calcBtn = document.getElementById("calcBtn");
+      const calcResult = document.getElementById("calcResult");
 
-      const markModuleBtn = document.getElementById('markModuleBtn');
-      markModuleBtn.addEventListener('click', () => {
-        markModuleBtn.textContent = markModuleBtn.textContent.includes('completado')
-          ? 'Marcar módulo como completado'
-          : 'Módulo completado';
+      calcBtn.addEventListener("click", () => {
+        const mat = parseFloat(document.getElementById("mat").value || 0);
+        const pack = parseFloat(document.getElementById("pack").value || 0);
+        const labor = parseFloat(document.getElementById("labor").value || 0);
+        const margin = parseFloat(document.getElementById("margin").value || 0);
+
+        const cost = mat + pack + labor;
+        const price = cost * (1 + margin / 100);
+
+        calcResult.textContent =
+          cost > 0
+            ? `Costo total: $${cost.toFixed(2)} · Precio sugerido: $${price.toFixed(2)}`
+            : "Ingresa tus valores para calcular.";
       });
     })();
 
-    (() => {
-      const els = document.querySelectorAll('.fade-up');
-      if (!('IntersectionObserver' in window)) {
-        els.forEach(el => el.classList.add('visible'));
+    (function () {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImg");
+      const lightboxClose = document.getElementById("lightboxClose");
+
+      document.querySelectorAll("[data-lightbox]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          lightboxImg.src = btn.getAttribute("data-lightbox");
+          lightbox.classList.add("open");
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        lightboxImg.src = "";
+      }
+
+      lightboxClose.addEventListener("click", closeLightbox);
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lightbox.classList.contains("open")) {
+          closeLightbox();
+        }
+      });
+    })();
+
+    (function () {
+      const candleDemo = document.getElementById("candleDemo");
+      const candleToggle = document.getElementById("candleToggle");
+      let isOn = true;
+
+      candleToggle.addEventListener("click", () => {
+        isOn = !isOn;
+        candleDemo.classList.toggle("off", !isOn);
+      });
+    })();
+
+    (function () {
+      const items = document.querySelectorAll(".fade-up");
+
+      if (!("IntersectionObserver" in window)) {
+        items.forEach((el) => el.classList.add("visible"));
         return;
       }
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.14 });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
 
-      els.forEach(el => observer.observe(el));
+      items.forEach((el) => observer.observe(el));
     })();
   </script>
 </body>
 </html>
-<footer style="background:var(--surface-2);padding:32px 20px;text-align:center"><div class="container"><nav style="display:flex;gap:12px;justify-content:center;margin-bottom:16px;flex-wrap:wrap"><a href="modulo-5.html" class="btn-outline" style="color:var(--text);text-decoration:none;display:inline-block;padding:8px 20px;border:2px solid var(--text);border-radius:8px;font-size:14px">&larr; Módulo 5: Finanzas</a><a href="index.html" class="btn-outline" style="color:var(--text);text-decoration:none;display:inline-block;padding:8px 20px;border:2px solid var(--text);border-radius:8px;font-size:14px">Inicio</a><a href="modulo-7.html" class="btn-outline" style="color:var(--text);text-decoration:none;display:inline-block;padding:8px 20px;border:2px solid var(--text);border-radius:8px;font-size:14px">Módulo 7: Normativa &rarr;</a></nav><p style="color:var(--muted);font-size:13px;margin-top:16px">&copy; 2025 Velspace Velas Artesanales | WhatsApp: +56933411093</p></div></footer>
